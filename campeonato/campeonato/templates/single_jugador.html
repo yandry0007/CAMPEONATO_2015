@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+	{% for title in torneos %}
+		<h1>{{ title.nombre|upper }}</h1>
+			      {% if user.is_authenticated %}
+				<h2>Usuario: {{ user.username }}</h2>
+        	{% else %}	
+        <h2>Por favor Registrarse!!</h2>
+				{% endif %}	
+	{% endfor %}
+{% endblock %}
+{% block contenido %}
+		
+		{% if perfil %}
+			<h2> {{ perfil.nombres  }} {{ perfil.apellidos  }}</h2>
+			<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">FOTO</li>
+						<br><p aling="justify">
+						<img src="/{{ perfil.foto }}" width="150px" heigth="1500px" /><br>
+						</p>
+						<h5>Correo: {{ perfil.correo }}</h5>
+						<h5>Cedula: {{ perfil.cedula }}</h5>
+						<h5>Estatura: {{ perfil.estatura }}</h5>
+						<h5>Movil: {{ perfil.telefono }}</h5>
+						<br><a href="/jugadores/page/1/" class="btn btn-primary"> <i class="icon-repeat"></i> Regresar</a>
+						
+					</ul>
+			</div>
+			
+			
+				
+		{% else %}
+			<td><a class="btn btn-primary" href="/agregar/perfil/"> Agregar Perfil </a></td>
+		{% endif %}
+
+		
+{% endblock %}

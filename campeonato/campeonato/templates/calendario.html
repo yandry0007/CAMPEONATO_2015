@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}
+	{% for title in torneos %}
+		<h1>{{ title.nombre|upper }}</h1>
+	      {% if user.is_authenticated %}
+				<h2>Usuario: {{ user.username }}</h2>
+	{% else %}	
+        <h2>Por favor Registrarse!!</h2>
+				{% endif %}	
+	{% endfor %}
+{% endblock %}
+{% block contenido %}
+	<table class="table table-hover">
+		<th>ENCUENTROS</th>
+    <th>FECHA</th>
+    <th>CANCHA</th>
+		<th>FASE</th>
+		<th>ARBITROS</th>
+	
+    
+    {% for item in encuentros %}
+		<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
+
+			<td>{{ item.fk_local.nombre }} VS {{ item.fk_visita.nombre }} </td>
+       <td>{{ item.hora }}</td>
+      <td>{{ item.cancha }}</td>
+      <td>{{ item.fk_fase }}</td>
+      <td>{{ item.fk_arbitros.arbitro }}</td>
+     
+		</tr>
+		{% endfor %}
+	</table>
+
+
+
+{% if encuentros %}
+	<div class="pagination">
+	<ul>
+		<li><a href="#"> << </a></li>
+		{% if encuentros.has_previous %}
+			<li><a href="#">Prev</a></li>
+		{% else %}
+			<li><a href="#"> Prev </a></li>
+		{% endif %}
+		{% if encuentros.has_next %}
+			<li><a href="#"> Next </a></li>
+		{% else %}
+			<li><a href="#"> Next </a></li>
+		{% endif %}
+			<li><a href="#"> >> </a></li>
+	</ul>
+	</div>
+
+	<h4> Pagina {{ encuentros.number }} de  {{encuentros.paginator.num_pages }}</h4>
+
+{% endif %}
+{% endblock %}

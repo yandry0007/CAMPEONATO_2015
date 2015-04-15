@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/static/css/styles.css" />
+	<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-responsive.css">
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/prefixfree.min.js"></script>
+	<script src="/static/js/functions.js"></script>
+	<title>CIS-UNL-2015</title>
+</head>
+<body>
+	<header>
+		<hgroup>
+			{% block title %}{% endblock %}
+		<hgroup>
+		<nav>
+			<ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/calendarios/page/1/">Calendario</a></li>
+				<li><a href="/resultados/page/1/">Resultados</a></li>
+				<li><a href="/goleadores">Goleadores</a></li>
+				<li><a href="/amonestados">Amonestados</a></li>
+				<li><a href="/contactenos">Contactenos</a></li>
+				<li><a href="/equipos/page/1/" >Equipos</a></li>
+				<li><a href="/jugadores/page/1/" >Jugadores</a></li>
+				{% if user.is_authenticated %}
+				<li><a href="/salir" >Logout</a></li>
+				{% else %}
+				<li><a href="/ingresar">Login</a></li>
+				{% endif %}	
+				
+
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<article id="info">
+			<figure>
+				<img id="foto" src="/static/img/a7.jpg" />
+				<img id="foto" src="/static/img/a6.jpg" />
+			</figure>
+		</article>
+		<article id="contenido">
+			{% block contenido %}{% endblock %}
+		</article>
+	</section>
+</body>
+<br><footer>
+		<p>&copy; Yandry_Ramirez || Django version: 1.7.2</p>
+	</footer>
+</html>
+

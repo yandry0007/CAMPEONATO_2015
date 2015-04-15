@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+	{% for title in torneos %}
+		<h1>{{ title.nombre|upper }}</h1>
+	      {% if user.is_authenticated %}
+				<h2>Usuario: {{ user.username }}</h2>
+	{% else %}	
+        <h2>Por favor Registrarse!!</h2>
+				{% endif %}	
+
+	{% endfor %}
+{% endblock %}
+{% block contenido %}
+{% load staticfiles %}	
+	{% if info == "iniciar" %}
+
+		<div class="well sidebar-nav">
+			<ul class="nav nav-list">
+			<li class="nav-header">PERFIL</li>
+			<p aling="justify">
+			<form method="POST" enctype="multipart/form-data" > {% csrf_token %}
+			{{form.as_p}}
+			<input type="submit" class="btn btn-info" value="Confirmar">
+				<a href="/jugadores/page/1/" class="btn btn-info" >Cancelar</a>
+			</form>
+						
+					</ul>
+					
+		</div><!--/Well-->
+
+
+	{% else %}
+	<img src="/static/img/ok.jpg" width="250px" heigth="250px">
+
+	<br><br><p align="center"><h4><b>{{ info }}</b></h4></p>
+	{% endif %}
+{% endblock %}
