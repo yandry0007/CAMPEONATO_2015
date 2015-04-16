@@ -16,7 +16,7 @@
 						<li class="nav-header">Ingresar texto a buscar!</li>
 							<form action="#/buscar/" method="post">
 				  				{% csrf_token %}
-								<input type="text" id="modal_idBuscar" name="texto" placeholder="Buscar Jugadores por Nombre" type="search">
+								<input type="text" id="modal_idBuscar" name="texto" placeholder="Buscar por n° de cedula" type="search">
 
 								<button type="submit" name="q" value="{{ q }}" class="btn" ><li class="icon icon-search"></li><span class="visuallyhidden">Search</span></button>
 							</form>

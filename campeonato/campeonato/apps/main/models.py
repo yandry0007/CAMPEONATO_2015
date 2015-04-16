@@ -140,7 +140,7 @@ class Encuentro(models.Model):
 	fk_fase = models.ForeignKey(Fase)
 	goleslocal = models.IntegerField(blank=False, default="0")
 	golesvisita = models.IntegerField(blank=False, default="0")
-  #jugado = models.BooleanField(blank=False, default=False)
+  	jugado = models.BooleanField(blank=False, default=False)
   
 	class Meta:
 	    verbose_name = 'Encuentro'

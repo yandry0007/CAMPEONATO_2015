@@ -48,8 +48,8 @@ def ingresar_view(request):
 
 def resultados_view(request,pagina):
 	torneos = Campeonato.objects.filter(estado=True)
-	resultados = Encuentro.objects.filter(fk_local__fk_campeonato__estado__exact=True).order_by('fk_fecha')
-  #resultados = Encuentro.objects.filter(jugado__exact=True).order_by('fk_fecha')
+	#resultados = Encuentro.objects.filter(fk_local__fk_campeonato__estado__exact=True).order_by('fk_fecha')
+  	resultados = Encuentro.objects.filter(jugado__exact=True).order_by('fk_fecha')
 
 	#PAGINACION
 	paginator = Paginator(resultados,6)
@@ -116,7 +116,7 @@ def jugadores_view(request,pagina):
 	#BUSCAR JUGADORES
 	
 	if request.method == "POST":
-		pro = Perfiles.objects.filter(nombres__icontains = request.POST['texto'] )
+		pro = Perfiles.objects.filter(cedula__icontains = request.POST['texto'] )
 		return render_to_response('jugadores.html',{'torneos':torneos,'pro':pro }, context_instance=RequestContext(request))
 
 	#PAGINACION
@@ -135,8 +135,8 @@ def jugadores_view(request,pagina):
 
 def calendario_view(request,pagina):
   torneos = Campeonato.objects.filter(estado=True)
-  encuentros = Encuentro.objects.filter(fk_local__fk_campeonato__estado__exact=True).order_by('fk_fecha')
-  #encuentros = Encuentro.objects.filter(jugado__exact=False).order_by('fk_fecha')
+  #encuentros = Encuentro.objects.filter(fk_local__fk_campeonato__estado__exact=True).order_by('fk_fecha')
+  encuentros = Encuentro.objects.filter(jugado__exact=False).order_by('fk_fecha')
   #PAGINACION
   paginator = Paginator(encuentros,5)
   try:

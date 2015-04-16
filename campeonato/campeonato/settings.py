@@ -68,7 +68,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_campeonato2015',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'yandry',
         'HOST': '0.0.0.0',
     }
 }

@@ -11,23 +11,25 @@
 {% endblock %}
 {% block contenido %}
 	<table class="table table-hover">
-		<th>ENCUENTROS</th>
-    <th>FECHA</th>
-    <th>CANCHA</th>
+		{% regroup encuentros by fk_fecha as fecha_list %}
+		<th>ENCUENTRO</th>
+		<TH>FECHA</TH>
+		<th>CANCHA</th>
 		<th>FASE</th>
-		<th>ARBITROS</th>
-	
-    
-    {% for item in encuentros %}
-		<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
-
-			<td>{{ item.fk_local.nombre }} VS {{ item.fk_visita.nombre }} </td>
-       <td>{{ item.hora }}</td>
-      <td>{{ item.cancha }}</td>
-      <td>{{ item.fk_fase }}</td>
-      <td>{{ item.fk_arbitros.arbitro }}</td>
-     
-		</tr>
+		<TH>ARBITRO</TH>
+		{% for fecha in fecha_list %}
+			<tr>
+				<th colspan="5">{{ fecha.grouper }}</th>
+			</tr>
+			{% for item in fecha.list %}
+				<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
+					<td>{{ item.fk_local.nombre }} VS {{ item.fk_visita.nombre }}</td>
+					<td>{{ item.fk_fecha }}</td>
+					<td>{{ item.cancha }}</td>
+					<td>{{ item.fk_fase }}</td>
+					<td>{{ item.fk_arbitros.arbitro }}</td>
+				</tr>
+			{% endfor %}
 		{% endfor %}
 	</table>
 
