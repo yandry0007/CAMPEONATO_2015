@@ -65,10 +65,10 @@ WSGI_APPLICATION = 'campeonato.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_campeonato2015',
-        'USER': 'root',
-        'PASSWORD': 'yandry',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'campeonato_2015',
+        'USER': 'action',
+        'PASSWORD': '',
         'HOST': '0.0.0.0',
     }
 }
