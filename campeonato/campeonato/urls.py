@@ -16,9 +16,7 @@ urlpatterns = patterns('campeonato.apps.main.views',
     url(r'^registrar/$', 'registrar_view', name='vista_registrar'),
     url(r'^salir/$', 'salir_view', name='vista_salir'),
     url(r'^agregar/perfil/$', 'agregar_perfil_view', name='vista_agregar_perfil'),
-
     url(r'^jugador/page/(?P<id_jugador>.*)/$', 'single_jugador_view', name='vista_single_jugador'),
-    
     url(r'^resultados/page/(?P<pagina>.*)/$', 'resultados_view', name='vista_resultados'),
     url(r'^jugadores/page/(?P<pagina>.*)/$', 'jugadores_view', name='vista_jugadores'),
     url(r'^equipos/page/(?P<pagina>.*)/$', 'equipos_view', name='vista_equipos'),

@@ -24,7 +24,7 @@
 			{% for item in fecha.list %}
 				<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
 					<td>{{ item.fk_local.nombre }} VS {{ item.fk_visita.nombre }}</td>
-					<td>{{ item.fk_fecha }}</td>
+					<td>{{ item.hora }}</td>
 					<td>{{ item.cancha }}</td>
 					<td>{{ item.fk_fase }}</td>
 					<td>{{ item.fk_arbitros.arbitro }}</td>

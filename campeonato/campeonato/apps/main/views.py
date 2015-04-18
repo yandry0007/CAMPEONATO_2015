@@ -208,3 +208,11 @@ def equipos_view(request,pagina):
 	ctx = {'jugadores':jugadores, 'torneos': torneos, 'equipos':equipos}
 	return render_to_response('equipos.html', ctx, context_instance=RequestContext(request))
 
+def print_plantilla_view(request, id_juego):
+	if request.method == "POST":
+		encuentro = Equipo.objects.get(id=id_juego)
+		jugadores = Perfiles.objects.filter(fk_equipo = encuentro.fk_local)
+		plantilla = Equipo.objects.filter(nombre__icontains = request.POST['texto'] )
+		ctx = {'plantilla':plantilla}
+		return render_to_response('print_plantilla.html', ctx, context_instance=RequestContext(request))
+	
