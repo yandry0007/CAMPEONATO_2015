@@ -1,0 +1,41 @@
+{% extends 'base1.html' %}
+{% block title %}
+	{% for title in torneos %}
+		<h1>{{ title.nombre|upper }}</h1>
+	      {% if user.is_authenticated %}
+				<h2>Usuario: {{ user.username }}</h2>
+	{% else %}	
+        <h2>Por favor Registrarse!!</h2>
+				{% endif %}	
+	{% endfor %}
+{% endblock %}
+{% block contenido %}
+{% load staticfiles %}	
+
+<div class="well sidebar-nav">
+			<ul class="nav nav-list">
+			<li class="nav-header">NUEVO USUARIO</li>
+			<p aling="justify">
+			{% if info == "inicializando" %}	
+			<br><form class="form-horizontal" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<a href="/ingresar" class="btn btn-primary" ><li class="icon-refresh"></li> Cancelar</a>
+				<button type="submit" class="btn btn-primary"><li class="icon-edit"></li> Guardar</button>
+			</form>
+			{% else %}
+			<br><br><p align="center"><h4><b>{{ info }}</b></h4></p>
+			<p align="center"><h5><b>Por favor agregar su perfil</b></h5></p>
+      <img src="/static/img/ss.jpg" width="250px" heigth="250px">
+			{% endif %}
+						
+			</ul>
+					
+</div><!--/Well-->
+
+
+
+
+
+	
+{% endblock %}

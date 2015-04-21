@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CIS-UNL-2015</title>
+<meta name="Title" content="Ejemplos de páginas web estándar"/>
+<meta name="Description" content="Ejemplos de diseños de páginas web estandar de distintas empresas, todos ellos hechos a medida según la imagen corporativa de la empresa"/>
+<meta name="Keywords" content="ejemplos, ejemplos web, ejemplos diseño web, ejemplos páginas web, ejemplos pagina web, ejemplos página web"/>
+<meta name="Language" content="es"/>
+<meta name="Distribution" content="Global"/>
+<meta name="robots" content="index,follow"/>
+<meta http-equiv="Language" content="es"/>
+<meta http-equiv="Distribution" content="Global"/>
+<meta http-equiv="Robots" content="All" />
+
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-responsive.css">
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/prefixfree.min.js"></script>
+<script src="/static/js/functions.js"></script>
+
+<link href="/static/css/estilos_dissenyaweb.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/estils_dissenyaweb_menu.css" rel="stylesheet" type="text/css" />
+<link rel="canonical" href="http://www.dissenyaweb.com/es_paginas_web/pagina_web_estandar.html" />
+<meta name="verify-v1" content="zwATpGXnofPgXdqGICL8YDivSwzj8qkN8tzy4z1hh3I=" />
+</head>
+
+<body>
+      <div class="Header">
+        <div class="idioma">
+          {% if user.is_authenticated %}
+              <li><a class="Estilo10" href="/salir" >Logout</a></li>
+          {% else %}
+              <li><a class="Estilo10" href="/ingresar">Login</a></li>
+          {% endif %} 
+        </div>
+      </div>
+<br>
+<div class="Marc" style="height:1023px">
+  
+  <img src="/static/img/a1.jpg" alt="banner disseny web" width="195" height="12" style="position:absolute; top: 10px; left: 10px;"  />
+  <img src="/static/img/a7.jpg" alt="banner disseny web" width="195" height="12" style="position:absolute; top: 10px; left: 209px;"  />
+  <img src="/static/img/a6.jpg" alt="banner disseny web" width="195" height="12" style="position:absolute; top: 10px; left: 409px;"  />
+  <img src="/static/img/a5.jpg" alt="banner disseny web" width="195" height="12" style="position:absolute; top: 10px; left: 609px;"  />
+  <img src="/static/img/a1.jpg" alt="banner disseny web" width="195" height="12" style="position:absolute; top: 10px; left: 795px;"  />
+
+  <img src="/static/img/banner_pagines_web_17.jpg" alt="banner disseny web" width="980" height="122" style="position:absolute; top: 130px; left: 9px;"  />
+
+  <div style="position:absolute; left: 15px; top: 144px; color:white; width: 991px; text-align:center; font-size:11px" title="diseño de páginas web" >
+    {% block title %}{% endblock %}
+  </div>
+
+        
+
+
+
+
+<a href="/" title="página principal de dissenyaweb.com, páginas web en Girona" class="inici">INICIO</a>
+<a href="/contactenos" class="contacte" title="contacto con dissenyaweb / Solans_DSGN">CONTACTENOS </a> 
+<a href="/calendarios/page/1/" class="empresa" title="Empresa de internet especializada en diseño web">CALENDARIOS </a>  
+ 
+<a href="/equipos/page/1/" class="pressupost" title="presupuestos de diseño de páginas web">EQUIPOS </a>
+<a href="/jugadores/page/1/" class="allotjament" title="Empresa de internet especializada en diseño web">JUGADORES </a> 
+<a href="/resultados/page/1/" class="iniciyr" title="Empresa de internet especializada en diseño web">RESULTADOS</a>
+<a href="/goleadores" class="iniciyr2" title="Empresa de internet especializada en diseño web">GOLEADORES</a>
+
+<!--<a href="/amonestados" class="" >AMONESTADOS</a>-->
+
+
+ 
+
+
+
+  
+<div class="well sidebar-nav" style="position:absolute; left: 34px; top: 320px; width: 588px; height: 660px;">
+    <span class="Estilo8"> </span><br/><br>
+    <section>
+      <article id="contenido">
+        {% block contenido %}{% endblock %}
+      </article>
+    </section>
+</div>
+</div>
+
+<div class="well sidebar-nav" style="position:absolute; left: 844px; top: 345px; width: 258px; height: 190px;">
+
+    <ul class="nav nav-list">
+            <li class="nav-header">DATOS DE USUARIO</li>
+          
+            <br><p aling="justify">
+            {% if user.is_authenticated %}
+            <p><b> Bienvenido:</b><br> {{user}}</p>
+            <img src="/static/img/ok.jpg" width="100px" heigth="100px"/> 
+            <a href="/salir" class="btn btn-primary">Salir</a>
+            {%else%}
+            <a href="/registrar" class="btn">Registrarse</a><br><br>
+            <a href="/ingresar" class="btn btn-primary">Login</a>
+            {% endif %}
+            </p>
+            
+    </ul>
+
+    <section>
+      <article id="contenido">
+      </article>
+    </section>
+</div>
+</div>
+
+
+
+
+<div class="well sidebar-nav" style="position:absolute; left: 844px; top: 590px; width: 258px; height: 419px;">
+
+    <span class="Estilo8"> Galeria de Imagenes</span><br><br> 
+    <section>
+     <img src="/static/img/a3.jpg">
+    </section>
+</div>
+</div>
+
+
+</body>
+<br><footer style="position:absolute; left: 566px; top: 1064px; color:#666666; width: 291px; font-size:15px">
+    <p>&copy; Yandry_Ramirez || Django version: 1.7.2</p>
+</footer>
+</html>

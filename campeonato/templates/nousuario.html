@@ -1,0 +1,6 @@
+{% extends 'ingresar.html' %}
+{% block contenido %}
+	{% if error %}
+		<div style="color:red"> El usuario o el password son incorrectos </div>
+	{% endif %}
+{% endblock %}

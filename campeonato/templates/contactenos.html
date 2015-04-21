@@ -1,0 +1,31 @@
+{% extends 'base1.html' %}
+{% block title %}
+	{% for title in torneos %}
+		<h1>{{ title.nombre|upper }}</h1>
+		      {% if user.is_authenticated %}
+				<h2>Usuario: {{ user.username }}</h2>
+  	{% else %}	
+        <h2>Por favor Registrarse!!</h2>
+				{% endif %}	
+	{% endfor %}
+{% endblock %}
+{% block contenido %}
+	<form id='formulario' method='post' action=''>{% csrf_token %}
+		<table class="table1">
+			<tr>
+				<td>Correo: </td>
+				<td>{{ formulario.correo}}</td>
+			</tr>
+			<tr>
+				<td>Mensaje: </td>
+				<td>{{ formulario.mensaje }}</td>
+			</tr>
+			<tr>
+				<td><input class="btn" type='submit' value='Enviar' /></td>
+			</tr>
+		</table>
+		<section class="foot">
+			<h5>&copy; E-mail: yrramirezs@unl.edu.ec</h5>
+		</section>
+	</form>
+{% endblock %}

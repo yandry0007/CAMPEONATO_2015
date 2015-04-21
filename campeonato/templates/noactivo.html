@@ -1,0 +1,10 @@
+{% extends 'ingresar.html'%}
+{% block contenido %}
+	{% if error %}
+		<div style="color:red"> El usuario no esta activo </div>
+	{% endif %}
+	<script>
+		alert('El usuario esta bloqueado, espere 24h si persiste el bloqueo contactese con el administrador "yrramirezs@unl.edu.ec" , para resolver el problema');
+		document.location.href='/ingresar';
+	</script>
+{% endblock %}

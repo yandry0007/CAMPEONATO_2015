@@ -1,0 +1,66 @@
+{% extends 'base1.html' %}
+{% block title %}
+	{% for title in torneos %}
+		<h1>{{ title.nombre|upper }}</h1>
+	      {% if user.is_authenticated %}
+				<h2>Usuario: {{ user.username }}</h2>
+	{% else %}	
+        <h2>Por favor Registrarse!!</h2>
+				{% endif %}	
+	{% endfor %}
+{% endblock %}
+{% block contenido %}
+
+{% if encuentros %}
+	<table class="table table-hover">
+		{% regroup encuentros by fk_fecha as fecha_list %}
+		<th>ENCUENTRO</th>
+		<TH>FECHA</TH>
+		<th>CANCHA</th>
+		<th>FASE</th>
+		<TH>ARBITRO</TH>
+		{% for fecha in fecha_list %}
+			<tr>
+				<th colspan="5">{{ fecha.grouper }}</th>
+			</tr>
+			{% for item in fecha.list %}
+				<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
+					<td>{{ item.fk_local.nombre }} VS {{ item.fk_visita.nombre }}</td>
+					<td>{{ item.hora }}</td>
+					<td>{{ item.cancha }}</td>
+					<td>{{ item.fk_fase }}</td>
+					<td>{{ item.fk_arbitros.arbitro }}</td>
+				</tr>
+			{% endfor %}
+		{% endfor %}
+	</table>
+
+{% else %}
+<h3>No existen calendarios disponibles!</h3>
+{% endif %}
+	
+
+
+
+{% if encuentros %}
+	<div class="pagination">
+	<ul>
+		<li><a href="#"> << </a></li>
+		{% if encuentros.has_previous %}
+			<li><a href="#">Prev</a></li>
+		{% else %}
+			<li><a href="#"> Prev </a></li>
+		{% endif %}
+		{% if encuentros.has_next %}
+			<li><a href="#"> Next </a></li>
+		{% else %}
+			<li><a href="#"> Next </a></li>
+		{% endif %}
+			<li><a href="#"> >> </a></li>
+	</ul>
+	</div>
+
+	<h4> Pagina {{ encuentros.number }} de  {{encuentros.paginator.num_pages }}</h4>
+
+{% endif %}
+{% endblock %}
