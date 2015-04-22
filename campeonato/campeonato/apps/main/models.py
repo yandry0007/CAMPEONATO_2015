@@ -164,7 +164,7 @@ class JuegoTarjeta(models.Model):
 	fk_tarjeta = models.ForeignKey(Tarjeta)
 	fk_juego = models.ForeignKey(Encuentro)
 	fk_jugador = models.ForeignKey(Perfiles)
-  #pagado = models.BooleanField(blank=False, default=False)
+  	pagado = models.BooleanField(blank=False, default=False)
 	
 	class Meta:
 	    verbose_name = 'Amonestado'

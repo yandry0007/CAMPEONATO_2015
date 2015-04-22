@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 {% block title %}
 	{% for title in torneos %}
 		<h1>{{ title.nombre|upper }}</h1>
@@ -16,7 +16,7 @@
 						<li class="nav-header">Ingresar texto a buscar!</li>
 							<form action="#/buscar/" method="post">
 				  				{% csrf_token %}
-								<input type="text" id="modal_idBuscar" name="texto" placeholder="Buscar por n° de cedula" type="search">
+								<input type="text" id="modal_idBuscar" name="texto" placeholder="Buscar por cedula" type="search">
 
 								<button type="submit" name="q" value="{{ q }}" class="btn" ><li class="icon icon-search"></li><span class="visuallyhidden">Search</span></button>
 							</form>
@@ -46,6 +46,27 @@
 		{% endfor %}
 	</table>
 
+
+{% if pro %}
+	<div class="pagination">
+	<ul>
+		<li><a href="/jugadores/page/1"> << </a></li>
+		{% if pro.has_previous %}
+			<li><a href="/jugadores/page/{{pro.previous_page_number }}/">Prev</a></li>
+		{% else %}
+			<li><a href="#"> Prev </a></li>
+		{% endif %}
+		{% if pro.has_next %}
+			<li><a href="/jugadores/page/{{pro.next_page_number}}/"> Next </a></li>
+		{% else %}
+			<li><a href="#"> Next </a></li>
+		{% endif %}
+			<li><a href="/jugadores/page/{{pro.paginator.num_pages}}/"> >> </a></li>
+	</ul>
+	</div>
+
+	<h4> Pagina {{ pro.number }} de {{pro.paginator.num_pages }}</h4>
+	{% endif %}
 
 {% else %}
 {% if jugadores %} 

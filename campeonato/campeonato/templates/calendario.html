@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 {% block title %}
 	{% for title in torneos %}
 		<h1>{{ title.nombre|upper }}</h1>
@@ -10,16 +10,20 @@
 	{% endfor %}
 {% endblock %}
 {% block contenido %}
+
+{% if encuentros %}
+<h4>CALENDARIOS DISPONIBLES</h4><br>
 	<table class="table table-hover">
 		{% regroup encuentros by fk_fecha as fecha_list %}
 		<th>ENCUENTRO</th>
 		<TH>FECHA</TH>
 		<th>CANCHA</th>
 		<th>FASE</th>
-		<TH>ARBITRO</TH>
+		<th>ARBITRO</th>
+		<th>IMPRIMIR</th>
 		{% for fecha in fecha_list %}
 			<tr>
-				<th colspan="5">{{ fecha.grouper }}</th>
+				<th colspan="6">{{ fecha.grouper }}</th>
 			</tr>
 			{% for item in fecha.list %}
 				<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
@@ -28,13 +32,16 @@
 					<td>{{ item.cancha }}</td>
 					<td>{{ item.fk_fase }}</td>
 					<td>{{ item.fk_arbitros.arbitro }}</td>
+					<td><button class="btn" ><li class="icon icon-print"></li>Imprimir Planilla</button></td>
 				</tr>
 			{% endfor %}
 		{% endfor %}
 	</table>
 
-
-
+{% else %}
+<h3>No existen calendarios disponibles!</h3>
+{% endif %}
+	
 {% if encuentros %}
 	<div class="pagination">
 	<ul>

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 {% block title %}
 	{% for title in torneos %}
 		<h1>{{ title.nombre|upper }}</h1>
@@ -11,6 +11,7 @@
 {% endblock %}
 {% block contenido %}
 {% if tarjetas %}
+<h4>JUGADORES AMONESTADOS</h4><br>
 <table class="table table-hover">
 		<tr>
 			<th>JUGADORES</th>
@@ -26,7 +27,7 @@
 <!-- 			<td>{{ item.fk_juego.fk_local }}</td>
 			<td>{{ item.fk_juego.fk_visita }}</td> -->
 			<td>{{ item.fk_tarjeta }}</td>
-      <td>True</td>
+      <td>{{ item.pagado }}</td>
 			<td>{{ item.fk_juego.fk_fecha }}</td>
 			
 		</tr>

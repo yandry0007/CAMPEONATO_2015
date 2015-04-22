@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 {% block title %}
 	{% for title in torneos %}
 		<h1>{{ title.nombre|upper }}</h1>
@@ -10,10 +10,34 @@
 	{% endfor %}
 {% endblock %}
 {% block contenido %}
+<h4>EQUIPOS REGISTRADOS</h4>
+
+<form action="/print/plantilla/" method="post">
+{% csrf_token %}
+	
+	<button type="submit" class="btn" ><li class="icon icon-print"></li>
+	<span class="visuallyhidden">Imprimir Plantilla</span>
+	</button><br><br>
+
+	<select name="equipo">
+	<option value="none" selected="selected">Seleccione Equipo</option>
+	<option value="10mo A">10mo A</option>
+	<option value="10mo B">10mo B</option>
+	<option value="8vo A">8vo A</option>
+	<option value="8vo B">8vo B</option>
+	<option value="6to A">6to A</option>
+	<option value="6to B">6to B</option>
+	<option value="4to A">4to A</option>
+	<option value="4to B">4to B</option>
+	<option value="2do A">2do A</option>
+	<option value="2do B">2do B</option>
+	</select></p>
+
+</form>
 
 	<table class="table table-hover">
 		{% regroup jugadores by fk_equipo as equipo_list %}
-		<th><a href="#"><img src="/static/img/page.png" width="20px" heigth="20px" /></a> EQUIPOS</th>
+		<th>EQUIPOS</th>
 		<th>INSCRIPCION</th>
 		<th>FOTO</th>
 		{% for equipo in equipo_list %}

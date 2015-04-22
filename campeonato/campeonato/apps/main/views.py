@@ -84,6 +84,7 @@ def amonestados_view(request):
 
 def contactenos_view(request):
 	torneos = Campeonato.objects.filter(estado=True)
+	info = "inicializando"
 	if request.method=='POST':
 		formulario = ContactoForm(request.POST)
 		if formulario.is_valid():
@@ -91,13 +92,14 @@ def contactenos_view(request):
 			contenido = formulario.cleaned_data['mensaje']+"\n"
 			contenido += 'Comunicarse a: ' + formulario.cleaned_data['correo']
 			correo = EmailMessage(titulo, contenido, to=['yrramirezs@unl.edu.ec'])
+			info = "Correo Enviado Satisfactoriamente!!"
 			try:
 				correo.send()
 			except Exception, e:
-				return HttpResponseRedirect('/')
+				return render_to_response('contactenos.html',{'info':info,'torneos':torneos}, context_instance=RequestContext(request))
 	else:
 		formulario = ContactoForm()
-	return render_to_response('contactenos.html',{'formulario':formulario, 'torneos':torneos}, context_instance=RequestContext(request))
+	return render_to_response('contactenos.html',{'info':info, 'formulario':formulario, 'torneos':torneos}, context_instance=RequestContext(request))
 
 def salir_view(request):
 	logout(request)
@@ -117,10 +119,21 @@ def jugadores_view(request,pagina):
 	
 	if request.method == "POST":
 		pro = Perfiles.objects.filter(cedula__icontains = request.POST['texto'] )
+		#PAGINACION
+		paginator = Paginator(pro,7)
+		try:
+			page = int(pagina)
+		except:
+			page = 1
+		try:
+			pro = paginator.page(page)
+		except (EmptyPage, InvalidPage):
+			pro = paginator.page(paginator.num_pages)
+
 		return render_to_response('jugadores.html',{'torneos':torneos,'pro':pro }, context_instance=RequestContext(request))
 
 	#PAGINACION
-	paginator = Paginator(jugadores,5)
+	paginator = Paginator(jugadores,6)
 	try:
 		page = int(pagina)
 	except:
@@ -195,7 +208,7 @@ def equipos_view(request,pagina):
 	equipos = Equipo.objects.filter(fk_campeonato__estado__exact=True)
 
 	#PAGINACION
-	paginator = Paginator(jugadores,7)
+	paginator = Paginator(jugadores,5)
 	try:
 		page = int(pagina)
 	except:
@@ -208,11 +221,12 @@ def equipos_view(request,pagina):
 	ctx = {'jugadores':jugadores, 'torneos': torneos, 'equipos':equipos}
 	return render_to_response('equipos.html', ctx, context_instance=RequestContext(request))
 
-def print_plantilla_view(request, id_juego):
+def print_plantilla_view(request):
+	torneos = Campeonato.objects.filter(estado=True)
 	if request.method == "POST":
-		encuentro = Equipo.objects.get(id=id_juego)
-		jugadores = Perfiles.objects.filter(fk_equipo = encuentro.fk_local)
-		plantilla = Equipo.objects.filter(nombre__icontains = request.POST['texto'] )
-		ctx = {'plantilla':plantilla}
+		asd = request.POST['equipo']
+		print "equipo: "+asd
+		plantilla = Perfiles.objects.filter(fk_equipo__nombre__icontains = request.POST['equipo'] )
+		ctx = {'plantilla':plantilla, 'torneos':torneos}
 		return render_to_response('print_plantilla.html', ctx, context_instance=RequestContext(request))
-	
+	return render_to_response('print_plantilla.html', {'torneos':torneos}, context_instance=RequestContext(request))

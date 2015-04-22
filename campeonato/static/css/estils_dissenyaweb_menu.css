@@ -1,0 +1,469 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+.inici {
+	position:absolute;
+	left: 11px;
+	top: 262px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 38px;
+	width:137px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+
+a.inici {
+	background-image:url(/static/img/background.jpg);
+	color:#000000;
+}
+.iniciyr {
+	position:absolute;
+	left: 430px;
+	top: 262px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 38px;
+	width:137px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+a.iniciyr {
+	background-image:url(/static/img/background.jpg);
+	color:#000000;
+}
+.iniciyr2 {
+	position:absolute;
+	left: 289px;
+	top: 262px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 38px;
+	width:137px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+a.iniciyr2 {
+	background-image:url(/static/img/background.jpg);
+	color:#000000;
+}
+a.iniciyr:hover {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
+	color:#000000;
+}
+a.iniciyr2:hover {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
+	color:#000000;
+}
+a.inici:hover {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
+	color:#000000;
+}
+
+
+.empresa {
+	position:absolute;
+	left: 150px;
+	top: 262px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 38px;
+	width:137px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+
+a.empresa {
+	background-image:url(/static/img/background.jpg);
+		color:#000000;
+}
+
+a.empresa:hover {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
+	color:#000000;
+}
+
+.exemples {
+	position:absolute;
+	left: 289px;
+	top: 262px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 38px;
+	width:137px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+
+a.exemples {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris.jpg);
+		color:#000000;
+}
+
+a.exemples:hover {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
+	color:#000000;
+}
+
+
+.exemples2 {
+	/*position:absolute;
+	left: -1px;
+	top: 0px;
+	
+	text-decoration:none;
+	font-size:12px;
+	height: 38px;
+	*/
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_tronja.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-left:36px;
+	padding-right:36px;
+	padding-top:13px;
+	padding-bottom:12px;
+	bottom: -1px;
+	color:#ffffff;/*
+	right: 1px;
+	margin-bottom:10px*/
+}
+
+a.exemples2 {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris.jpg);
+		color:#000000;
+}
+
+a.exemples2:hover {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
+	color:#000000;
+}
+
+
+
+
+.pressupost {
+	position:absolute;
+	left: 712px;
+	top: 262px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 38px;
+	width:137px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+
+a.pressupost {
+	background-image:url(/static/img/background.jpg);
+		color:#000000;
+}
+
+a.pressupost:hover {
+	background-image:url();
+	color:#000000;
+}
+
+
+.autoeditables {
+	position:absolute;
+	left: 428px;
+	top: 262px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 38px;
+	width:143px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:repeat-x;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+
+a.autoeditables {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris.jpg);
+		color:#000000;
+}
+
+a.autoeditables:hover {
+	background-image:url(/static/img/a2.jpg);
+	color:#000000;
+}
+
+.allotjament {
+	position:absolute;
+	left: 573px;
+	top: 262px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 38px;
+	width:137px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+
+a.allotjament {
+	background-image:url(/static/img/background.jpg);
+		color:#000000;
+}
+
+a.allotjament:hover {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
+	color:#000000;
+}
+
+
+.contacte {
+	position:absolute;
+	left: 851px;
+	top: 262px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 38px;
+	width:137px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+
+a.contacte {
+	background-image:url(/static/img/background.jpg);
+		color:#000000;
+}
+
+a.contacte:hover {
+	background-image:url();
+	color:#000000;
+}
+
+
+
+
+
+
+
+/* Desplegable*/
+
+
+#desplegable
+{position:absolute; left: 289px; top: 262px; z-index:30}
+
+#desplegable li
+{  margin-top:0px;
+    padding-top:11px;
+   padding-bottom:11px;
+   background-image:url(/static/img/background.jpg);
+   width:137px;
+   height:16px;
+    position:relative;}
+	
+#desplegable li:hover
+{    background-image:url(/static/img/none.jpg);
+
+  }
+   
+#desplegable li li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:url(/static/img/none.jpg);
+
+   background-color:#E0E0E0;
+   width:137px;
+   height:16px;
+   border-top:2px solid #FFFFFF;
+   border-bottom:0px solid #FFFFFF;
+   border-left:10px solid #FFFFFF;
+   border-right:10px solid #FFFFFF;
+   margin-left:-10px
+   }
+   
+ 
+   
+#first
+{ margin-top: -1px
+}
+
+#first_vermell
+{  margin-top: -1px;
+   border-bottom:0px solid #FFFFFF;
+   border-left:10px solid #ffffff;
+   border-right:10px solid #FFFFFF;
+   width:137px;
+   margin-left:-10px;
+}
+#first_vermell .in_first_vermell,
+#first_vermell .in_first_vermell:hover
+{background-image:url(img_disseny_web/img_menu_pagines_web/boto_tronja.jpg);
+color:#FFFFFF}
+
+
+
+
+#midle_vermell
+{  border-bottom:0px solid #FFFFFF;
+   border-left:10px solid #ffffff;
+   border-right:10px solid #FFFFFF;
+   width:137px;
+   margin-left:-10px;
+ }
+
+#midle_vermell .in_midle_vermell,
+#midle_vermell .in_midle_vermell:hover
+{background-image:url(img_disseny_web/img_menu_pagines_web/boto_tronja.jpg);
+color:#FFFFFF}
+
+
+
+
+
+#last
+{  border-bottom:10px solid #FFFFFF;
+   border-left:10px solid #FFFFFF;
+   border-right:10px solid #FFFFFF;
+   width:137px;
+   margin-left:-10px
+}
+
+
+#last_vermell
+{  border-bottom:10px solid #FFFFFF;
+   border-left:10px solid #ffffff;
+   border-right:10px solid #FFFFFF;
+   width:137px;
+   margin-left:-10px;
+ }
+
+#last_vermell .in_last_vermell,
+#last_vermell .in_last_vermell:hover
+{background-image:url(img_disseny_web/img_menu_pagines_web/boto_tronja.jpg);
+color:#FFFFFF}
+
+
+
+#desplegable li a
+{color:#000000;
+}
+
+
+/* amagar submenus*/
+ul.menu_color
+{
+   list-style:none;
+   text-align:center;
+   margin:0px;
+   padding:0px;
+}
+
+ul.menu_color ul /* Para todos los ul debajo del ul.menu */
+{
+   display:none;
+   list-style:none;
+   margin-left:-1px;
+   padding-top:20px
+ 
+  
+} 
+
+
+/* mostrar submenus quan fas hover al li corresponent*/
+
+/* Esto afecta a todos los ul inmediatamente debajo (el > ) de un li que a su vez esté dentro de un ul.menu */
+ul.menu_color li:hover > ul
+{
+   display:block;
+}
+
+
+
+
+
+
+/* menu desplegable productes*/
+
+
+#desplegable2
+{
+	position:absolute;
+	left: 428px;
+	top: 262px;
+	z-index:30;
+	
+}
+
+
+#desplegable2 li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:url(/static/img/background.jpg);
+   width:143px;
+   height:28px;
+   position:relative;}
+	
+#desplegable2 li a
+{	color:#000000;
+}
+	
+#desplegable2 li:hover
+{    background-image:url(/static/img/background.jpg);
+
+  }
+   
+#desplegable2 li li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   /*background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris.jpg);*/
+   background-image:none;
+	background-color:#E0E0E0;
+   width:143px;
+   height:16px;
+   border-top:2px solid #FFFFFF;
+   border-bottom:0px solid #FFFFFF;
+   border-left:10px solid #FFFFFF;
+   border-right:10px solid #FFFFFF;
+   margin-left:-10px
+   }

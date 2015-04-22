@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 {% block title %}
 	{% for title in torneos %}
 		<h1>{{ title.nombre|upper }}</h1>
@@ -10,23 +10,30 @@
 	{% endfor %}
 {% endblock %}
 {% block contenido %}
-	<form id='formulario' method='post' action=''>{% csrf_token %}
-		<table class="table1">
-			<tr>
-				<td>Correo: </td>
-				<td>{{ formulario.correo}}</td>
-			</tr>
-			<tr>
-				<td>Mensaje: </td>
-				<td>{{ formulario.mensaje }}</td>
-			</tr>
-			<tr>
-				<td><a href="/" class="boton">Regresar</a></td>
-				<td><input class="boton" type='submit' value='Enviar' /></td>
-			</tr>
-		</table>
-		<section class="foot">
-			&copy; Powered by Yandry Ramirez E-mail: yrramirezs@unl.edu.ec
-		</section>
-	</form>
+
+	{% if info == "inicializando" %}	
+		<form id='formulario' method='post' action=''>{% csrf_token %}
+			<table class="table1">
+				<tr>
+					<td>Correo: </td>
+					<td>{{ formulario.correo}}</td>
+				</tr>
+				<tr>
+					<td>Mensaje: </td>
+					<td>{{ formulario.mensaje }}</td>
+				</tr>
+				<tr>
+					<td><input class="btn" type='submit' value='Enviar' /></td>
+				</tr>
+			</table>
+			<section class="foot">
+				<h5>E-mail: yrramirezs@unl.edu.ec</h5>
+			</section>
+		</form>			
+
+	{% else %}
+			<br><p align="center"><h4><b>{{ info }}</b></h4></p>		
+		    <img src="/static/img/ss.jpg" width="250px" heigth="250px">
+	{% endif %}
+	
 {% endblock %}

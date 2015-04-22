@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 {% block title %}
 	{% for title in torneos %}
 		<h1>{{ title.nombre|upper }}</h1>
@@ -10,6 +10,7 @@
 	{% endfor %}
 {% endblock %}
 {% block contenido %}
+<h4>TABLA DE RESULTADOS</h4><br>
 	<table class="table table-hover">
 		{% regroup resultados by fk_fecha as fecha_list %}
 		<th>LOCAL</th>
