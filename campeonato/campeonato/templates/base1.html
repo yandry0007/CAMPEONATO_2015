@@ -6,6 +6,8 @@
 <meta name="Title" content="Ejemplos de páginas web estándar"/>
 <meta name="Description" content="Ejemplos de diseños de páginas web estandar de distintas empresas, todos ellos hechos a medida según la imagen corporativa de la empresa"/>
 <meta name="Keywords" content="ejemplos, ejemplos web, ejemplos diseño web, ejemplos páginas web, ejemplos pagina web, ejemplos página web"/>
+
+
 <meta name="Language" content="es"/>
 <meta name="Distribution" content="Global"/>
 <meta name="robots" content="index,follow"/>
@@ -23,6 +25,12 @@
 <link href="/static/css/estils_dissenyaweb_menu.css" rel="stylesheet" type="text/css" />
 <link rel="canonical" href="http://www.dissenyaweb.com/es_paginas_web/pagina_web_estandar.html" />
 <meta name="verify-v1" content="zwATpGXnofPgXdqGICL8YDivSwzj8qkN8tzy4z1hh3I=" />
+
+<!--JS MODAL -->
+<link rel="stylesheet" href="/static/bootstrap-3/css/bootstrap.css"/>
+
+<!--JS MODAL -->
+
 </head>
 
 <body>
@@ -45,15 +53,13 @@
   <img src="/static/img/a5.jpg" alt="banner disseny web" width="195" height="12" style="position:absolute; top: 10px; left: 609px;"  />
   <img src="/static/img/a1.jpg" alt="banner disseny web" width="195" height="12" style="position:absolute; top: 10px; left: 795px;"  />
 
-  <img src="/static/img/banner_pagines_web_17.jpg" alt="banner disseny web" width="980" height="122" style="position:absolute; top: 130px; left: 9px;"  />
+  <img src="/static/img/banner_pagines_web_17.jpg" alt="banner disseny web" width="980" height="122" style="position:absolute; top: 135px; left: 9px;"  />
 
-  <div style="position:absolute; left: 15px; top: 144px; color:white; width: 991px; text-align:center; font-size:11px" title="diseño de páginas web" >
+  <div style="position:absolute; left: 15px; top: 124px; color:white; width: 991px; text-align:center; font-size:11px" title="diseño de páginas web" >
     {% block title %}{% endblock %}
   </div>
 
         
-
-
 
 
 <a href="/" title="Inicio" class="inici">INICIO</a>
@@ -63,9 +69,6 @@
 <a href="/equipos/page/1/" class="pressupost" title="Equipos">EQUIPOS </a>
 <a href="/jugadores/page/1/" class="allotjament" title="Jugadores">JUGADORES </a> 
 <a href="/goleadores" class="iniciyr2" title="Goleadores">GOLEADORES</a>
-
-<!--<a href="/amonestados" class="" >AMONESTADOS</a>-->
-
 
   <div id="desplegable2">   
    <ul class="menu_color">
@@ -80,10 +83,8 @@
   </div>
  
 
-
-
-  
-<div class="well sidebar-nav" style="position:absolute; left: 34px; top: 320px; width: 588px; height: 660px;">
+<!-- contenido central   -->
+<div class="well sidebar-nav" style="position:absolute; left: 30px; top: 320px; width: 640px; height: 690px;">
     <span class="Estilo8"> </span><br/><br>
     <section>
       <article id="contenido">
@@ -91,11 +92,12 @@
       </article>
     </section>
 </div>
+<!-- contenido central   -->
 
-<div class="well sidebar-nav" style="position:absolute; left: 670px; top: 320px; width: 258px; height: 190px;">
+<div class="well sidebar-nav" style="position:absolute; left: 690px; top: 320px; width: 288px; height: 230px;">
         <ul class="nav nav-list">
                 <li class="nav-header">DATOS DE USUARIO</li>
-                <br><p aling="justify">
+                <p aling="justify">
                 {% if user.is_authenticated %}
                 <p><b> Bienvenido:</b><br> {{user}}</p>
                 <img src="/static/img/ok.jpg" width="100px" heigth="100px"/> 
@@ -113,7 +115,7 @@
 </div>
 
 
-<div class="well sidebar-nav" style="position:absolute; left: 670px; top: 560px; width: 258px; height: 419px;">
+<div class="well sidebar-nav" style="position:absolute; left: 690px; top: 560px; width: 288px; height: 449px;">
     <span class="Estilo8"> Galeria de Imagenes</span><br><br> 
     <section>
      <img src="/static/img/a3.jpg">
@@ -123,7 +125,7 @@
 </div>
 
 </body>
-<br><footer style="position:absolute; left: 566px; top: 1064px; color:#666666; width: 291px; font-size:15px">
+<br><footer style="position:absolute; left: 566px; top: 1064px; color:black; width: 291px; font-size:15px">
     <p>&copy; Yandry_Ramirez || Django version: 1.7.2</p>
 </footer>
 </html>

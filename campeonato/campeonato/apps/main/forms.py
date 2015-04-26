@@ -7,10 +7,22 @@ class ContactoForm(forms.Form):
 	correo = forms.EmailField(label='Tu correo electronico')
 	mensaje = forms.CharField(widget=forms.Textarea)
 
-
-class UserForm(UserCreationForm):
+class LoginForm(UserCreationForm):
 	pass
-	#movil = forms.CharField(widget=forms.TextInput(), required=True)
+
+# class UserForm(UserCreationForm):
+# 	nombres = forms.CharField(widget=forms.TextInput())
+# 	apellidos = forms.CharField(widget=forms.TextInput())
+# 	cedula = forms.IntegerField()
+# 	representante = forms.BooleanField()
+# 	capitan = forms.BooleanField()
+# 	foto = forms.ImageField(required=True)
+# 	estatura = forms.CharField()
+# 	correo = forms.EmailField(label='Tu correo electronico')
+# 	telefono = forms.IntegerField()
+	
+	# def clean(self):
+	# 	return self.cleaned_data
 
 
 class PerfilForm(forms.ModelForm):

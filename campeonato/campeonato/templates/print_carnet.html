@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/static/css/stylesprint.css" />
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/prefixfree.min.js"></script>
+	<script src="/static/js/functions.js"></script>
+	<title>CIS-UNL-2015</title>
+</head>
+<body>
+<section>
+<article id="contenido">
+    <table class="planilla">
+        <tr>
+            <th colspan="6">{% for title in torneos %} {{ title.nombre|upper }} {% endfor %} </br> CARNET DE JUEGO </th>
+        </tr>
+        <tr>
+            <th colspan="3">Equipo: {{carnet.fk_equipo.nombre}}</th>
+            <td colspan="3">Capitan:</td>
+            
+        </tr>
+        <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>C.I.</th>
+            <th>Correo</th>
+            <td>Firma</td>
+           
+        </tr>
+
+    	<tr>
+            <td></td>
+		    <td>{{ carnet.nombres }} {{ carnet.apellidos }} </td>
+            <td>{{carnet.cedula}}</td>
+            <td>{{carnet.correo}}</td>
+            <td></td>
+        </tr>
+
+          <tr>
+            <th></th>
+            <TH></TH>
+            <TH></TH>
+            <TH></TH>
+            <th colspan="5">FOTO</th>
+        </tr>
+
+        <th colspan="4">
+            <td colspan="6"><img src="/{{carnet.foto}}" width="100px" height="100px" ></td>
+        </th>
+        
+    </table>
+   	<section id="separador">
+   	</section>
+
+</article>
+</section>
+</body>
+</html>

@@ -1,0 +1,333 @@
+/*estilos para cajas que define el sistema, no cambiar los nombres*/
+/*base de los formularios */
+
+#formularios {
+    
+}
+
+#dataformulario {
+width:380px;
+float: left;
+overflow: hidden;
+margin-right:40px;    
+}
+
+
+#inputformulario {
+width:380px;
+float: left;
+overflow: hidden;
+}
+
+#inputformulario ul {
+    list-style-type: none;
+    
+}
+#dataformulario p {
+    
+}
+
+
+
+#inputformulario label {
+ 
+}
+
+
+#inputformulario input {
+border: 1px solid;
+font-size:9pt;
+color: #626262;
+padding:2px;
+}
+
+#inputformulario textarea {
+border:1px solid;
+padding: 2px;
+height: 70px;
+
+}
+
+
+#inputformulario .pformulario {
+ text-align: left; 
+}
+
+
+
+#inputformulario .inputtxt {
+width: 374px;
+}
+
+
+#inputformulario .inputtxtarea {
+width: 374px;
+}
+
+
+#inputformulario .inputmail {
+width: 374px;   
+}
+
+
+#inputformulario .inputradio {
+border: 0 none;
+height: 12px;
+width: 20px;
+margin: 0px 4px 0px 0;
+}
+
+
+#inputformulario .inputcheckbox {
+border: 0 none;
+height: 12px;
+width: 20px;
+margin: 0px 4px 0px 0;
+}
+
+
+
+#inputformulario .inputselect {
+color: #666666;
+font-family: arial;
+font-size: 9pt;
+margin: 0;
+padding: 0
+}
+
+
+#botoneraform {
+margin: 10px 0 0 0;
+
+}
+
+#botoneraform input {
+border:auto;
+font-size:auto;
+height:auto;
+line-height:auto;
+margin:auto;
+padding:0 10px;
+width: auto;
+}
+
+/*estilo para los comentarios */
+
+#comentarionota {
+margin: 0 40px 15px 40px;
+padding: 0;
+
+}
+
+#comentarionota h3 {
+border-bottom: 1px solid #119204;
+color: #119204;
+font-family: Arial,San Serif,"Trebuchet MS";
+font-size: 15pt;
+font-weight: normal;
+margin: 3px 0 10px;
+padding: 0 0 5px;
+}
+
+#comentarionota h5 {
+color: #119204;
+font-family: Arial,San Serif,"Trebuchet MS";
+font-size: 9pt;
+font-style: italic;
+font-weight: bold;
+margin: 0 0 5px;
+padding: 0;
+}
+
+
+
+#comentarionota p {
+background-color: #e8e8e8;
+color: #626262;
+font-family: Arial,San Serif,"Trebuchet MS";
+font-size: 10pt;
+font-weight: normal;
+margin: 0;
+padding: 15px;
+text-align: justify;
+}
+
+
+#formulariocomentario {
+margin: 0 40px 15px;
+padding: 0;   
+}
+
+#formulariocomentario img {
+display: inline;    
+}
+
+
+
+#formulariocomentario p{
+text-align: left;
+font-size: 11pt;
+margin:6px 0 10px 0;
+padding: 0;
+}
+
+#formulariocomentario dataformulario {
+float: left;
+margin: 0;
+padding: 0;
+}
+
+
+
+#formulariocomentario input {
+border: 1px solid #999999;
+color: #555555;
+font-size: 8pt;
+margin: 0 0 0 20px;
+padding: 2px;
+}
+
+
+#formulariocomentario label {
+float: left;
+font-size: 10pt;
+margin:0 8px 0 0;
+width:50px;
+font-family: Arial,San Serif,"Trebuchet MS";
+color: #626262;
+}
+
+#formulariocomentario textarea{
+border: 1px solid #999999;
+color: #555555;
+font-size: 8pt;
+margin: 0 0 0 28px;
+padding: 2px;
+}
+
+.blogcomentarios {
+border: 0;
+
+}
+
+#agenda {
+    
+}
+
+#calendario {
+    
+}
+
+#calendario table.index {
+border: none;    
+}
+
+#calendario table.baseagenda {
+border: 1px solid #555555;    
+}
+
+#calendario td, th {
+font-size: 8pt;
+padding: 3px;
+}
+
+#calendario th {
+}
+
+.tituloagenda{}
+
+.celdatituloagenda{}
+
+.filames{
+background: none repeat scroll 0 0 #555555;
+}
+
+.celdaprevnextmes{
+    
+}
+
+a.linkprev{
+border: 0 none;
+color: #FFFFFF;
+display: block;}
+    
+a.linkprev:hover{
+background:#ddddd;
+}    
+
+a.linknext{
+border: 0 none;
+color: #FFFFFF;
+display: block;
+}
+
+a.linknext:hover{
+background:#ddddd;
+}       
+    
+.titulomes{
+color:#ffffff;
+}
+
+.filadias{
+    
+}
+
+.celdadias{
+background: none repeat scroll 0 0 #CCCCCC;
+color: #FFFFFF;
+text-align: center;
+}
+
+.tddia{
+background: none repeat scroll 0 0 #DDDDDD;
+text-align: center;
+}
+
+.calendario{
+text-align: center;
+}
+
+#basico {
+overflow: hidden;
+}
+
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+
+/*estilos personales definidos por el diseñador*/
+
+#cajaconborde {
+/*behavior: url(ie-css3.htc);
+border: 1px solid #fa9674;
+border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+zoom: 1;
+position: relative;
+overflow: hidden;*/
+}
+
+#cajaconborde div.zonainteriorintroind {border: 1px solid #a4a3a8;padding:9px;}
+#cajaconborde div.zonainteriorind {border: 1px solid #a4a3a8;padding:9px;}
+#cajaconborde div.contenidoformulario {border: 1px solid #a4a3a8;padding:9px;}
+
+#cajacolor {
+background: #7baa77;
+overflow: hidden;
+}
+
+
+#cajacolor p,#cajacolor h1, #cajacolor h2, #cajacolor h3, #cajacolor h4, #cajacolor h5, #cajacolor h6, #cajacolor p, #cajacolor ul, #cajacolor ol, #cajacolor li, #cajacolor pre {
+color: #ffffff;
+} 
+
+
+#cajacolor div.zonainteriorintroind {margin: 10px;}
+#cajacolor div.zonainteriorind {margin: 10px;}
+#cajacolor div.contenidoformulario {margin: 10px;}
+
+
+
+
+

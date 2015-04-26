@@ -1,0 +1,157 @@
+#galeriahorizontal {
+
+}
+
+#panelfotos {
+
+}
+
+#panelfotos span.image-wrapper {
+	
+	
+}
+
+
+#panelfotos span.previous {
+	
+}
+
+#barratextofoto {
+
+}
+
+#panelhorizontal {
+      height: auto;
+      overflow: hidden;
+      background: #ffffff;
+      clear: both;
+      -moz-border-radius:10px 10px 10px 10px;
+      -webkit-border-radius: 10px 10px 10px 10px;
+      border-radius:10px 10px 10px 10px;
+      padding: 10px;
+      margin: 12px 0;
+      border: 1px solid #d4d4d4;
+}      
+          
+#panelhorizontal ul {
+      margin: 0;
+      float: left;
+      padding: 0;
+      list-style: none;
+      }
+      
+#panelhorizontal li {
+      float: left;
+      	padding: 0;
+      	margin: 10px;
+      	list-style: none;
+      }
+      
+#panelhorizontal img {
+      width: 50px;
+      }
+      
+#panelhorizontal a{
+      text-decoration: none;
+      display: block;
+      }
+      
+      
+a.prev {
+    background: url("../img/previafoto.png") no-repeat scroll left top transparent;
+    display: block;
+    float: left;
+    height: 32px;
+    margin: 2px;
+    overflow: hidden;
+    text-indent: -2000em;
+    width: 30px;
+    
+    }
+    
+    
+a.next {
+    background: url("../img/siguientefoto.png") no-repeat scroll left top transparent;
+    display: block;
+    float: left;
+    height: 32px;
+    margin: 2px;
+    overflow: hidden;
+    text-indent: -2000em;
+    width: 30px;
+    
+    }
+    
+    
+a.play {
+    background: url("../img/playfotos.png") no-repeat scroll left top transparent;
+    display: block;
+    float: left;
+    height: 32px;
+    margin: 2px;
+    overflow: hidden;
+    text-indent: -2000em;
+    width: 30px;
+    
+    }
+    
+    
+a.pause {
+    background: url("../img/pausafotos.png") no-repeat scroll left top transparent;
+    display: block;
+    float: left;
+    height: 32px;
+    margin: 2px;
+    overflow: hidden;
+    text-indent: -2000em;
+    width: 30px;
+    
+    }
+    
+    
+div.bottom {
+    
+    clear:both;
+    float:right;
+}
+
+div.pagination  {
+    
+font-size: 9pt;    
+        
+    }  
+div.pagination a {
+    text-decoration: none;
+    display: block;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+    float:left;
+    
+    }
+
+div.pagination .current {
+    text-decoration: none;
+    display: block;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+    background: #555555;
+    float:left;
+    color: #ffffff;
+    
+    }    
+
+
+#galeriaclasica{
+
+}
+
+
+.fotogaleriaclasica {
+    float: left;
+    height: 140px;
+    margin: 7px;
+    overflow: hidden;
+    width: 140px;
+}    

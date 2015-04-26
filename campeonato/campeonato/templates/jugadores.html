@@ -11,19 +11,17 @@
 {% endblock %}
 {% block contenido %}
 	<!--BotonBuscar-->
-				<div class="well sidebar-nav">
-					<ul class="nav nav-list">
-						<li class="nav-header">Ingresar texto a buscar!</li>
-							<form action="#/buscar/" method="post">
-				  				{% csrf_token %}
-								<input type="text" id="modal_idBuscar" name="texto" placeholder="Buscar por cedula" type="search">
-
-								<button type="submit" name="q" value="{{ q }}" class="btn" ><li class="icon icon-search"></li><span class="visuallyhidden">Search</span></button>
-							</form>
-						
-					</ul>
-				</div>
-		<!--FinBuscar-->
+		<div class="well sidebar-nav">
+			<ul class="nav nav-list">
+				<li class="nav-header">Ingresar texto a buscar!</li>
+					<form action="#/buscar/" method="post">
+		  				{% csrf_token %}
+						<input type="text" id="modal_idBuscar" name="texto" placeholder="Buscar por cedula" type="search">
+						<button type="submit" class="btn " ><li class="icon icon-search"></li>Search</button>
+					</form>					
+			</ul>
+		</div>
+	<!--FinBuscar-->
 
 {% if pro %}
 
@@ -73,6 +71,8 @@
 	
 
 	{% if user.is_authenticated %}
+<!-- 	<a class="fa fa-pencil" data-toggle="modal" href="/agregar/perfil" data-target="#modal" title="edit item" data-tooltip><li class ="icon-plus"></li>Agregar Perfil...</a> -->
+
 		<a class="btn btn-primary" href="/agregar/perfil"><li class ="icon-plus"></li>Agregar Perfil...</a><br><br>
 		{% endif %}
 

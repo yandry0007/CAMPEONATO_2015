@@ -10,7 +10,7 @@
 	color:#ffffff;
 	text-decoration:none;
 	font-size:16px;
-	height: 38px;
+	height: 45px;
 	width:137px;
 	background-image:url(/static/img/a2.jpg);
 	background-repeat:no-repeat;
@@ -51,7 +51,7 @@ a.iniciyr {
 	color:#ffffff;
 	text-decoration:none;
 	font-size:16px;
-	height: 38px;
+	height: 45px;
 	width:137px;
 	background-image:url(/static/img/a2.jpg);
 	background-repeat:no-repeat;
@@ -85,7 +85,7 @@ a.inici:hover {
 	color:#ffffff;
 	text-decoration:none;
 	font-size:16px;
-	height: 38px;
+	height: 45px;
 	width:137px;
 	background-image:url(/static/img/a2.jpg);
 	background-repeat:no-repeat;
@@ -175,7 +175,7 @@ a.exemples2:hover {
 	color:#ffffff;
 	text-decoration:none;
 	font-size:16px;
-	height: 38px;
+	height: 45px;
 	width:137px;
 	background-image:url(/static/img/a2.jpg);
 	background-repeat:no-repeat;
@@ -230,7 +230,7 @@ a.autoeditables:hover {
 	color:#ffffff;
 	text-decoration:none;
 	font-size:16px;
-	height: 38px;
+	height: 45px;
 	width:137px;
 	background-image:url(/static/img/a2.jpg);
 	background-repeat:no-repeat;
@@ -258,7 +258,7 @@ a.allotjament:hover {
 	color:#ffffff;
 	text-decoration:none;
 	font-size:16px;
-	height: 38px;
+	height: 45px;
 	width:137px;
 	background-image:url(/static/img/a2.jpg);
 	background-repeat:no-repeat;
@@ -440,7 +440,7 @@ ul.menu_color li:hover > ul
    padding-bottom:11px;
    background-image:url(/static/img/background.jpg);
    width:143px;
-   height:28px;
+   height:45px;
    position:relative;}
 	
 #desplegable2 li a
@@ -454,14 +454,14 @@ ul.menu_color li:hover > ul
    
 #desplegable2 li li
 {  margin-top:0px;
-   padding-top:11px;
-   padding-bottom:11px;
+   padding-top:21px;
+   padding-bottom:21px;
    /*background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris.jpg);*/
    background-image:none;
-	background-color:#E0E0E0;
-   width:143px;
+   background-color:#E0E0E0;
+   width:165px;
    height:16px;
-   border-top:2px solid #FFFFFF;
+   border-top:1px solid #FFFFFF;
    border-bottom:0px solid #FFFFFF;
    border-left:10px solid #FFFFFF;
    border-right:10px solid #FFFFFF;

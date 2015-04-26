@@ -1,0 +1,56 @@
+{% extends 'base1.html' %}
+{% block title %}
+	{% for title in torneos %}
+		<h1>{{ title.nombre|upper }}</h1>
+			      {% if user.is_authenticated %}
+				<h2>Usuario: {{ user.username }}</h2>
+	{% else %}	
+        <h2>Por favor Registrarse!!</h2>
+				{% endif %}	
+	{% endfor %}
+{% endblock %}
+{% block contenido %}
+	<table class="table table-hover">
+		{% regroup resultados by fk_fecha as fecha_list %}
+		<th>LOCAL</th>
+		<TH></TH>
+		<th>VS</th>
+		<th>VISITANTE</th>
+		{% for fecha in fecha_list %}
+			<tr>
+				<th colspan="5">{{ fecha.grouper }}</th>
+			</tr>
+			{% for item in fecha.list %}
+				<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
+					<td>{{ item.fk_local.nombre }}</td>
+					<td>{{ item.goleslocal }}</td>
+					<td>VS</td>
+					<td>{{ item.fk_visita.nombre }}</td>
+					<td>{{ item.golesvisita }}</td>
+				</tr>
+			{% endfor %}
+		{% endfor %}
+	</table>
+
+{% if resultados %}
+	<div class="pagination">
+	<ul>
+		<li><a href="/resultados/page/1"> << </a></li>
+		{% if resultados.has_previous %}
+			<li><a href="/resultados/page/{{resultados.previous_page_number }}/">Prev</a></li>
+		{% else %}
+			<li><a href="#"> Prev </a></li>
+		{% endif %}
+		{% if resultados.has_next %}
+			<li><a href="/resultados/page/{{resultados.next_page_number}}/"> Next </a></li>
+		{% else %}
+			<li><a href="#"> Next </a></li>
+		{% endif %}
+			<li><a href="/resultados/page/{{resultados.paginator.num_pages}}/"> >> </a></li>
+	</ul>
+	</div>
+
+	<h4> Pagina {{ resultados.number }} de {{resultados.paginator.num_pages }}</h4>
+
+{% endif %}
+{% endblock %}

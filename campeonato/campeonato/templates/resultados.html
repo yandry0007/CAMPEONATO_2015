@@ -10,6 +10,7 @@
 	{% endfor %}
 {% endblock %}
 {% block contenido %}
+{% if resultados %}
 <h4>TABLA DE RESULTADOS</h4><br>
 	<table class="table table-hover">
 		{% regroup resultados by fk_fecha as fecha_list %}
@@ -32,6 +33,9 @@
 			{% endfor %}
 		{% endfor %}
 	</table>
+{% else %}
+<h3>No existen resultados!!! </h3>
+{% endif %}
 
 {% if resultados %}
 	<div class="pagination">

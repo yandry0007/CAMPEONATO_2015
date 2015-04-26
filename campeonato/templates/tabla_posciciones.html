@@ -1,0 +1,41 @@
+{% extends 'base1.html' %}
+{% load main_extras %}
+{% block title %}
+	{% for title in torneos %}
+		<h1>{{ title.nombre|upper }}</h1>
+		      {% if user.is_authenticated %}
+				<h2>Usuario: {{ user.username }}</h2>
+      	{% else %}	
+        <h2>Por favor Registrarse!!</h2>
+				{% endif %}	
+	{% endfor %}
+{% endblock %}
+{% block contenido %}
+<h4>TABLA DE POSCICIONES</h4><BR>
+	<table class="table table-hover">
+		<tr>
+			<th>EQUIPOS</th>
+			<th>PUNTOS</th>
+			<th>PJ</th>
+			<th>PG</th>
+			<th>PE</th>
+			<th>PP</th>
+			<th>GF</th>
+			<th>GC</th>	
+			<th>GD</th>
+		</tr>
+		{% for item in equipos %}
+		<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
+			<td>{{ item.nombre }}</td>
+			<td>{{ item.puntos }}</td>
+			<td>{{ item.pj }}</td>
+			<td>{{ item.pg }}</td>
+			<td>{{ item.pe }}</td>
+			<td>{{ item.pp }}</td>
+			<td>{{ item.gf }}</td>
+			<td>{{ item.gc }}</td>
+			<td>{{ item.gf|sub:item.gc }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

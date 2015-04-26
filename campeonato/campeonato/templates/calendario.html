@@ -26,13 +26,13 @@
 				<th colspan="6">{{ fecha.grouper }}</th>
 			</tr>
 			{% for item in fecha.list %}
-				<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
+				<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} " >
 					<td>{{ item.fk_local.nombre }} VS {{ item.fk_visita.nombre }}</td>
 					<td>{{ item.hora }}</td>
 					<td>{{ item.cancha }}</td>
 					<td>{{ item.fk_fase }}</td>
 					<td>{{ item.fk_arbitros.arbitro }}</td>
-					<td><button class="btn" ><li class="icon icon-print"></li>Imprimir Planilla</button></td>
+					<td><a class="btn btn-danger" onClick="popup('/print/encuentro/{{ item.id }}/');return false;" href=""><i class="icon-print icon-blue"></i> Planilla</a></td>
 				</tr>
 			{% endfor %}
 		{% endfor %}
@@ -45,18 +45,18 @@
 {% if encuentros %}
 	<div class="pagination">
 	<ul>
-		<li><a href="#"> << </a></li>
+		<li><a href="/calendarios/page/1"> << </a></li>
 		{% if encuentros.has_previous %}
-			<li><a href="#">Prev</a></li>
+			<li><a href="/calendarios/page/{{encuentros.previous_page_number }}/">Prev</a></li>
 		{% else %}
 			<li><a href="#"> Prev </a></li>
 		{% endif %}
 		{% if encuentros.has_next %}
-			<li><a href="#"> Next </a></li>
+			<li><a href="/calendarios/page/{{encuentros.next_page_number}}/"> Next </a></li>
 		{% else %}
 			<li><a href="#"> Next </a></li>
 		{% endif %}
-			<li><a href="#"> >> </a></li>
+			<li><a href="/calendarios/page/{{encuentros.paginator.num_pages}}/"> >> </a></li>
 	</ul>
 	</div>
 

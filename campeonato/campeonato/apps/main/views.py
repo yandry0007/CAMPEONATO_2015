@@ -4,6 +4,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.paginator import Paginator,EmptyPage,InvalidPage
+from django.views.generic import FormView
+from django.core.urlresolvers import reverse_lazy
 from django.template import RequestContext
 from django.core.mail import EmailMessage
 from models import *
@@ -151,7 +153,7 @@ def calendario_view(request,pagina):
   #encuentros = Encuentro.objects.filter(fk_local__fk_campeonato__estado__exact=True).order_by('fk_fecha')
   encuentros = Encuentro.objects.filter(jugado__exact=False).order_by('fk_fecha')
   #PAGINACION
-  paginator = Paginator(encuentros,5)
+  paginator = Paginator(encuentros,3)
   try:
     page = int(pagina)
   except:
@@ -168,14 +170,14 @@ def registrar_view(request):
 	torneos = Campeonato.objects.filter(estado=True)
 	info = "inicializando"
 	if request.method == "POST":
-		form = UserForm(request.POST)
+		form = LoginForm(request.POST)
 		if form.is_valid():
 			form.save()
 			info = "Registrado Satisfactoriamente!!"
 			ctx = {'info':info,'torneos':torneos}
 			return render_to_response('agregar_jugador.html',ctx, context_instance=RequestContext(request))
 	else:
-		form = UserForm()
+		form = LoginForm()
 	ctx = {'form':form,'info':info,'torneos':torneos}
 	return render_to_response('agregar_jugador.html',ctx, context_instance=RequestContext(request))
 
@@ -202,6 +204,44 @@ def agregar_perfil_view(request):
 	ctx = {'form':form,'info':info, 'torneos':torneos}
 	return render_to_response('agregar_perfil.html',ctx, context_instance=RequestContext(request))
 
+# class agregarPerfil(FormView):
+# 	template_name = 'agregar_perfil.html'
+# 	form_class = UserForm
+# 	success_url = reverse_lazy('vista_agregar_perfil')
+# 	def form_valid(self, form):
+# 		user = form.save()
+# 		fk_equipo = form.save()
+# 		perfil = Perfiles()
+# 		perfil.user = user
+# 		perfil.nombres = form.cleaned_data['nombres']
+# 		perfil.apellidos = form.cleaned_data['apellidos']
+# 		perfil.cedula = form.cleaned_data['cedula']
+# 		perfil.representante = form.cleaned_data['representante']
+# 		perfil.capitan = form.cleaned_data['capitan']
+# 		perfil.foto = form.cleaned_data['foto']
+# 		perfil.estatura = form.cleaned_data['estatura']
+# 		perfil.correo = form.cleaned_data['correo']
+# 		perfil.telefono = form.cleaned_data['telefono']
+# 		perfil.fk_equipo = fk_equipo
+# 		perfil.save()
+# 		return super(agregarPerfil , self).form_valid(form)
+
+
+# class Registrarse(FormView):
+# 	template_name = 'RegistrarUsuario.html' #envio una variable a registrarse y tengo q recogerla ahi
+# 	form_class = UserForm
+# 	success_url = reverse_lazy('registrarsee')
+
+# 	def form_valid(self, form):
+# 		user = form.save()
+# 		perfil = Perfiles()
+# 		perfil.user = user
+# 		perfil.telefono = form.cleaned_data['telefono']
+# 		perfil.photo = form.cleaned_data['photo']
+# 		perfil.save()
+# 		return super(Registrarse , self).form_valid(form)
+
+
 def equipos_view(request,pagina):
 	jugadores = Perfiles.objects.filter(fk_equipo__fk_campeonato__estado__exact=True)
 	torneos = Campeonato.objects.filter(estado=True)
@@ -224,9 +264,37 @@ def equipos_view(request,pagina):
 def print_plantilla_view(request):
 	torneos = Campeonato.objects.filter(estado=True)
 	if request.method == "POST":
-		asd = request.POST['equipo']
-		print "equipo: "+asd
 		plantilla = Perfiles.objects.filter(fk_equipo__nombre__icontains = request.POST['equipo'] )
 		ctx = {'plantilla':plantilla, 'torneos':torneos}
 		return render_to_response('print_plantilla.html', ctx, context_instance=RequestContext(request))
 	return render_to_response('print_plantilla.html', {'torneos':torneos}, context_instance=RequestContext(request))
+
+def print_encuentro_view(request, id_encuentro):
+	torneos = Campeonato.objects.filter(estado=True)
+	planilla = Encuentro.objects.get(id=id_encuentro)
+	j_local	= Perfiles.objects.filter(fk_equipo=planilla.fk_local)
+	j_visita = Perfiles.objects.filter(fk_equipo=planilla.fk_visita)
+	try:
+		r_local = Perfiles.objects.get(fk_equipo=planilla.fk_local, representante=True)
+	except:
+		r_local = None
+	try:
+		c_local = Perfiles.objects.get(fk_equipo=planilla.fk_local, capitan=True)
+	except:
+		c_local = None
+	try:
+		r_visita = Perfiles.objects.get(fk_equipo=planilla.fk_visita, representante=True)
+	except:
+		r_visita = None
+	try:
+		c_visita = Perfiles.objects.get(fk_equipo=planilla.fk_visita, capitan=True)
+	except:
+		c_visita = None
+	ctx = {'planilla':planilla, 'torneos':torneos, 'j_local':j_local, 'j_visita':j_visita, 'r_local':r_local, 'r_visita':r_visita, 'c_local':c_local, 'c_visita':c_visita}
+	return render_to_response('print_planilla.html', ctx, context_instance=RequestContext(request))
+
+def print_carnet_view(request, id_carnet):
+	torneos = Campeonato.objects.filter(estado=True)
+	carnet = Perfiles.objects.get(id=id_carnet)
+	ctx = {'carnet':carnet, 'torneos':torneos}
+	return render_to_response('print_carnet.html', ctx, context_instance=RequestContext(request))

@@ -89,7 +89,6 @@ class Perfiles(models.Model):
 	correo = models.EmailField(blank=False)
 	telefono = models.IntegerField(blank=False, max_length=30)
 	fk_equipo = models.ForeignKey(Equipo)
-	#Agregar Nombres y Apellidos
 	
 	def __unicode__(self):
 		return self.user.username

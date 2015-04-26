@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'campeonato.apps.main',
+    'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -69,7 +70,7 @@ DATABASES = {
         'NAME': 'db_campeonato2015',
         'USER': 'root',
         'PASSWORD': 'yandry',
-        'HOST': '0.0.0.0',
+        'HOST': 'localhost',
     }
 }
 

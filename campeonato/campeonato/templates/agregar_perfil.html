@@ -7,31 +7,64 @@
 	{% else %}	
         <h2>Por favor Registrarse!!</h2>
 				{% endif %}	
-
 	{% endfor %}
 {% endblock %}
 {% block contenido %}
 {% load staticfiles %}	
-	{% if info == "iniciar" %}
 
-		<div class="well sidebar-nav">
-			<ul class="nav nav-list">
-			<li class="nav-header">PERFIL</li>
-			<p aling="justify">
-			<form method="POST" enctype="multipart/form-data" > {% csrf_token %}
-			{{form.as_p}}
-			<input type="submit" class="btn btn-info" value="Confirmar">
-				<a href="/jugadores/page/1/" class="btn btn-info" >Cancelar</a>
-			</form>
-						
-					</ul>
-					
-		</div><!--/Well-->
+{% if info == "iniciar" %}
 
-
-	{% else %}
+<div>
+<div class="modal-content">
+	<form id="item_update_form" method="POST" enctype="multipart/form-data" class="form" role="form" action="/agregar/perfil/">
+	<div class="modal-header">
+		<!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+		<h4 class="modal-title" id="myModalLabel">Agregar su Perfil</h4>
+	</div>
+	<div class="modal-body" >
+		{% csrf_token %}
+		{{ form.non_field_errors }}
+		<div class="form-group">
+			{% for field in form %}
+			<div class="form-group"> 
+				{% if field.errors %}
+				<ul class="form-errors">
+					{% for error in field.errors %}
+					<li>
+						<span class="fa fa-exclamation-triangle"></span>
+						<strong>{{ error|escape }}</strong>
+					</li>
+					{% endfor %}				
+				</ul>
+				{% endif %}
+				{{ field.label_tag }} {{ field }}
+				{% if field.help_text %}
+				<div class="form-helptext">
+					{{ field.help_text }}
+				</div>
+				{% endif %}
+			</div>
+			{% endfor %}
+		</div>
+		<div class="modal-footer">
+			<input type="submit" class="btn btn-danger" value="Confirmar" style="margin-botton: 5px" />
+			<a href="/jugadores/page/1/" class="btn btn-primary" >Cancelar</a>
+		</div>
+	</div>
+	</form>
+					<script>
+						jQuery('.modal-content .calendar').datepicker({ dateFormat: "yy-mm-dd" });
+						var form_options = {
+							target: '#modal',
+							success: function(){ }
+						}
+						$('#item_update_form').ajaxForm(form_options);
+					</script>
+</div>
+</div>
+{% else %}
 	<img src="/static/img/ok.jpg" width="250px" heigth="250px">
-
 	<br><br><p align="center"><h4><b>{{ info }}</b></h4></p>
-	{% endif %}
+{% endif %}
+
 {% endblock %}

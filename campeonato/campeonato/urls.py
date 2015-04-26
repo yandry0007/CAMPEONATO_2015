@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+#from campeonato.apps.main.views import agregarPerfil
 
 urlpatterns = patterns('campeonato.apps.main.views',
     # Examples:
@@ -14,7 +15,10 @@ urlpatterns = patterns('campeonato.apps.main.views',
     url(r'^contactenos/$', 'contactenos_view', name='vista_contactenos'),
     url(r'^registrar/$', 'registrar_view', name='vista_registrar'),
     url(r'^salir/$', 'salir_view', name='vista_salir'),
+
     url(r'^agregar/perfil/$', 'agregar_perfil_view', name='vista_agregar_perfil'),
+    #url(r'^agregar/perfil/$', agregarPerfil.as_view() , name='vista_agregar_perfil'),
+
     url(r'^jugador/page/(?P<id_jugador>.*)/$', 'single_jugador_view', name='vista_single_jugador'),
     url(r'^resultados/page/(?P<pagina>.*)/$', 'resultados_view', name='vista_resultados'),
     url(r'^jugadores/page/(?P<pagina>.*)/$', 'jugadores_view', name='vista_jugadores'),
@@ -22,4 +26,7 @@ urlpatterns = patterns('campeonato.apps.main.views',
     url(r'^calendarios/page/(?P<pagina>.*)/$', 'calendario_view', name='vista_calendarios'),
     url(r'^print/goleadores/$', 'print_goleadores_view', name='vista_print_goleadores'),
     url(r'^print/plantilla/$', 'print_plantilla_view', name='vista_print_plantilla'),
+    url(r'^print/encuentro/(?P<id_encuentro>.*)/$', 'print_encuentro_view', name='vista_print_encuentro'),
+    url(r'^print/carnet/(?P<id_carnet>.*)/$', 'print_carnet_view', name='vista_print_carnet'),
+
 )

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/static/css/stylesprint.css" />
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/prefixfree.min.js"></script>
+    <script src="/static/js/functions.js"></script>
+    <title>CIS-UNL-2015</title>
+</head>
+<body>
+
+<section>
+<article id="contenido">
+    <table class="planilla">
+        <tr>
+            <th colspan="6">{% for title in torneos %} {{ title.nametorneo|upper }} {% endfor %} </br> PLANILLA DE JUEGO </th>
+        </tr>
+        <tr>
+            <th colspan="6">{{planilla.fk_fecha}}</th>
+        </tr>
+         <tr>
+            <th colspan="6">FASE: {{planilla.fk_fase}}</th>
+        </tr>
+        <tr>
+            <th colspan="3">Equipo: {{planilla.fk_local.nombre}}</th>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>C.I.</th>
+            <th>Firma</th>
+            <th>Goles</th>
+            <th>Tarjetas</th>
+        </tr>
+        {% for jlocal in j_local %}
+            <tr>
+                <td></td>
+                <td>{{jlocal.nombres}} {{jlocal.apellidos}}</td>
+                <td>{{jlocal.cedula}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        {% endfor%}
+         <tr>
+           <td colspan="6">RESULTADO FINAL: </td>
+        </tr>
+        <tr>
+           <td colspan="6">REPRESENTANTE: {{ r_local.nombres }} {{ r_local.apellidos }} </td>
+        </tr>
+        <tr>
+            <td colspan="6">CAPITAN: {{ c_local.nombres }} {{ c_local.apellidos }}</td>
+        </tr>
+    </table>
+    <section id="separador">
+    </section>
+    <table class="planilla">
+        <tr>
+            <th colspan="6">{{planilla.fk_fecha}}</th>
+        </tr>
+        <tr>
+            <th colspan="6">FASE: {{planilla.fk_fase}}</th>
+        </tr>
+        <tr>
+            <th colspan="3">Equipo: {{planilla.fk_visita.nombre}}</th>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>C.I.</th>
+            <th>Firma</th>
+            <th>Goles</th>
+            <th>Tarjetas</th>
+        </tr>
+            
+              {% for jlocal in j_visita %}
+            <tr>
+                <td></td>
+                <td>{{jlocal.nombres}} {{jlocal.apellidos}}</td>
+                <td>{{jlocal.cedula}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        {% endfor%}
+        <tr>
+           <td colspan="6">RESULTADO FINAL: </td>
+        </tr>
+        <tr>
+           <td colspan="6">REPRESENTANTE: {{ r_visita.nombres }} {{ r_visita.apellidos }}</td>
+        </tr>
+        <tr>
+            <td colspan="6">CAPITAN:{{ c_visita.nombres }} {{ c_visita.apellidos }} </td>
+        </tr>
+    </table><br>
+    <table class="planilla">
+          <tr>
+            <td colspan="6">RESUMEN <br/> DEL <br/> ENCUENTRO: </td>
+        </tr>
+    </table>
+</article>
+</section>
+</body>
+</html>

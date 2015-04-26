@@ -1,0 +1,39 @@
+{% extends 'base1.html' %}
+{% block title %}
+	{% for title in torneos %}
+		<h1>{{ title.nombre|upper }}</h1>
+			      {% if user.is_authenticated %}
+				<h2>Usuario: {{ user.username }}</h2>
+	{% else %}	
+        <h2>Por favor Registrarse!!</h2>
+				{% endif %}	
+	{% endfor %}
+{% endblock %}
+{% block contenido %}
+{% if tarjetas %}
+<table class="table table-hover">
+		<tr>
+			<th>JUGADORES</th>
+			<th>EQUIPO</th>
+			<th>TARJETAS</th>
+      <th>PAGADO</th>
+			<th>FECHA</th>
+		</tr>
+		{% for item in tarjetas %}
+		<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
+			<td>{{ item.fk_jugador.nombres }} {{ item.fk_jugador.apellidos }}</td>
+			<td>{{ item.fk_jugador.fk_equipo.nombre }}</td>
+<!-- 			<td>{{ item.fk_juego.fk_local }}</td>
+			<td>{{ item.fk_juego.fk_visita }}</td> -->
+			<td>{{ item.fk_tarjeta }}</td>
+      <td>True</td>
+			<td>{{ item.fk_juego.fk_fecha }}</td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+{% else %}
+<h3>No existen jugadores amonestados!!! </h3>
+{% endif %}
+	
+{% endblock %}
