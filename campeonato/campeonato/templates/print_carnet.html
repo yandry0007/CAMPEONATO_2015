@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="/static/css/stylesprint.css" />
+	<link rel="stylesheet" href="/static/css/styleprintcarnet.css" />
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
 	<script src="/static/js/jquery.js"></script>
 	<script src="/static/js/prefixfree.min.js"></script>
 	<script src="/static/js/functions.js"></script>
@@ -11,13 +12,13 @@
 <body>
 <section>
 <article id="contenido">
-    <table class="planilla">
+    <table class="table table-hover" border="1px">
         <tr>
             <th colspan="6">{% for title in torneos %} {{ title.nombre|upper }} {% endfor %} </br> CARNET DE JUEGO </th>
         </tr>
         <tr>
             <th colspan="3">Equipo: {{carnet.fk_equipo.nombre}}</th>
-            <td colspan="3">Capitan:</td>
+            <td colspan="3">Movil: {{carnet.telefono}}</td>
             
         </tr>
         <tr>

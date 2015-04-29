@@ -12,7 +12,7 @@
 {% block contenido %}
 
 {% if encuentros %}
-<h4>CALENDARIOS VARONES</h4><br>
+<h4>CALENDARIOS MUJERES</h4><br>
 	<table class="table table-hover">
 		{% regroup encuentros by fk_fecha as fecha_list %}
 		<th>DISCP</th>
@@ -31,11 +31,11 @@
 				<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} " >
 					<td>{{ item.fk_disciplina.nombre }}</td>
 					<td>{{ item.fk_local.nombre }} VS {{ item.fk_visita.nombre }}</td>
-					<td>{{ item.hora}}</td>
+					<td>{{ item.hora.year}}</td>
 					<td>{{ item.cancha }}</td>
 					<td>{{ item.fk_fase }}</td>
 					<td>{{ item.fk_arbitros.arbitro }}</td>
-					<td><a class="btn btn-danger" onClick="popup('/print/encuentro/varones/{{ item.id }}/');return false;" href=""><i class="icon-print icon-blue"></i> PLANILLA</a></td>
+					<td><a class="btn btn-danger" onClick="popup('/print/encuentro/mujeres/{{ item.id }}/');return false;" href=""><i class="icon-print icon-blue"></i> PLANILLA</a>
 				</tr>
 			{% endfor %}
 		{% endfor %}
@@ -48,18 +48,18 @@
 {% if encuentros %}
 	<div class="pagination">
 	<ul>
-		<li><a href="/calendarios/page/varones/1"> << </a></li>
+		<li><a href="/calendarios/page/mujeres/1"> << </a></li>
 		{% if encuentros.has_previous %}
-			<li><a href="/calendarios/page/varones/{{encuentros.previous_page_number }}/">Prev</a></li>
+			<li><a href="/calendarios/page/mujeres/{{encuentros.previous_page_number }}/">Prev</a></li>
 		{% else %}
 			<li><a href="#"> Prev </a></li>
 		{% endif %}
 		{% if encuentros.has_next %}
-			<li><a href="/calendarios/page/varones/{{encuentros.next_page_number}}/"> Next </a></li>
+			<li><a href="/calendarios/page/mujeres/{{encuentros.next_page_number}}/"> Next </a></li>
 		{% else %}
 			<li><a href="#"> Next </a></li>
 		{% endif %}
-			<li><a href="/calendarios/page/varones/{{encuentros.paginator.num_pages}}/"> >> </a></li>
+			<li><a href="/calendarios/page/mujeres/{{encuentros.paginator.num_pages}}/"> >> </a></li>
 	</ul>
 	</div>
 

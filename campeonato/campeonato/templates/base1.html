@@ -55,27 +55,38 @@
 
   <img src="/static/img/banner_pagines_web_17.jpg" alt="banner disseny web" width="980" height="122" style="position:absolute; top: 135px; left: 9px;"  />
 
-  <div style="position:absolute; left: 15px; top: 124px; color:white; width: 991px; text-align:center; font-size:11px" title="diseño de páginas web" >
+  <div style="position:absolute; left: 15px; top: 124px; color:white; width: 991px; text-align:center; font-size:11px" title="diseño de páginas web yampier&&asociados" >
     {% block title %}{% endblock %}
   </div>
 
         
-
-
 <a href="/" title="Inicio" class="inici">INICIO</a>
 <a href="/contactenos" class="contacte" title="Contactenos">CONTACTENOS </a> 
-<a href="/calendarios/page/1/" class="empresa" title="Calendarios">CALENDARIOS </a>  
+<!-- <a href="/calendarios/page/1/" class="empresa" title="Calendarios">CALENDARIOS </a>  --> 
  
 <a href="/equipos/page/1/" class="pressupost" title="Equipos">EQUIPOS </a>
 <a href="/jugadores/page/1/" class="allotjament" title="Jugadores">JUGADORES </a> 
 <a href="/goleadores" class="iniciyr2" title="Goleadores">GOLEADORES</a>
 
+<div id="desplegable1">   
+   <ul class="menu_color">
+    <li><a class="result" title="Calendario Hombres" href="/calendarios/page/varones/1/">CALENDARIOS</a>
+        <ul>
+           <div >
+                <li><a class="amonestado" title="Calendario Mujeres" href="/calendarios/page/mujeres/1/">C. MUJERES</a></li>
+           </div>
+        </ul>
+    </li>
+   </ul>   
+  </div>
+
+
   <div id="desplegable2">   
    <ul class="menu_color">
-    <li><a title="Resultados" href="/resultados/page/1/">RESULTADOS</a>
+    <li><a class="result" title="Resultados" href="/resultados/page/1/">RESULTADOS</a>
         <ul>
-           <div id="first">
-                <li><a title="Jugadores Amonestados" href="/amonestados">AMONESTADOS</a></li>
+           <div >
+                <li><a class="amonestado" title="Jugadores Amonestados" href="/amonestados">AMONESTADOS</a></li>
            </div>
         </ul>
     </li>
@@ -103,7 +114,7 @@
                 <img src="/static/img/ok.jpg" width="100px" heigth="100px"/> 
                 <a href="/salir" class="btn btn-primary">Salir</a>
                 {%else%}
-                <a href="/registrar" class="btn">Registrarse</a><br><br>
+                <a href="/registrar" class="btn btn-success">Registrarse</a><br><br>
                 <a href="/ingresar" class="btn btn-primary">Login</a>
                 {% endif %}
                 </p>

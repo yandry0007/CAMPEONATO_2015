@@ -11,9 +11,9 @@ body {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	background-color:#000000;
-	background-image:url(/static/img/background.jpg);
+	background-image:url(/static/img/background.jpg); /*imagen de fondo*/
 	background-position:top;
-	background-repeat:repeat-x
+	background-repeat:repeat-y
 }
 
 li

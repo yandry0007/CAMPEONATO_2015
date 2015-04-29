@@ -4,6 +4,7 @@
 
 
 .inici {
+
 	position:absolute;
 	left: 11px;
 	top: 262px;
@@ -11,13 +12,19 @@
 	text-decoration:none;
 	font-size:16px;
 	height: 45px;
-	width:137px;
+	width:135px;
 	background-image:url(/static/img/a2.jpg);
 	background-repeat:no-repeat;
 	text-align:center;
 	padding-top:11px;
 	bottom: -1px;
 	right: 1px;
+}
+.inici:hover,
+.inici:focus,
+.inici.focus {
+  color: #333;
+  text-decoration: none;
 }
 
 a.inici {
@@ -40,25 +47,37 @@ a.inici {
 	bottom: -1px;
 	right: 1px;
 }
+.iniciyr:hover,
+.iniciyr:focus,
+.iniciyr.focus {
+  color: #333;
+  text-decoration: none;
+}
 a.iniciyr {
 	background-image:url(/static/img/background.jpg);
 	color:#000000;
 }
 .iniciyr2 {
 	position:absolute;
-	left: 289px;
+	left: 293px;
 	top: 262px;
 	color:#ffffff;
 	text-decoration:none;
 	font-size:16px;
 	height: 45px;
-	width:137px;
+	width:133px;
 	background-image:url(/static/img/a2.jpg);
 	background-repeat:no-repeat;
 	text-align:center;
 	padding-top:11px;
 	bottom: -1px;
 	right: 1px;
+}
+.iniciyr2:hover,
+.iniciyr2:focus,
+.iniciyr2.focus {
+  color: #333;
+  text-decoration: none;
 }
 a.iniciyr2 {
 	background-image:url(/static/img/background.jpg);
@@ -76,7 +95,36 @@ a.inici:hover {
 	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
 	color:#000000;
 }
-
+.amonestado {
+	position:absolute;
+	left: 1px;
+	top: 0px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 45px;
+	width:145px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+.amonestado:hover,
+.amonestado:focus,
+.amonestado.focus {
+  color: #333;
+  text-decoration: none;
+}
+a.amonestado {
+	background-image:url(/static/img/background.jpg);
+		color:#000000;
+}
+a.amonestado:hover {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
+	color:#000000;
+}
 
 .empresa {
 	position:absolute;
@@ -94,6 +142,13 @@ a.inici:hover {
 	bottom: -1px;
 	right: 1px;
 }
+.empresa:hover,
+.empresa:focus,
+.empresa.focus {
+  color: #333;
+  text-decoration: none;
+}
+
 
 a.empresa {
 	background-image:url(/static/img/background.jpg);
@@ -104,7 +159,36 @@ a.empresa:hover {
 	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
 	color:#000000;
 }
-
+.result {
+	position:absolute;
+	left: 03px;
+	top: 0px;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:16px;
+	height: 45px;
+	width:137px;
+	background-image:url(/static/img/a2.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:11px;
+	bottom: -1px;
+	right: 1px;
+}
+.result:hover,
+.result:focus,
+.result.focus {
+  color: #333;
+  text-decoration: none;
+}
+a.result {
+	background-image:url(/static/img/background.jpg);
+		color:#000000;
+}
+a.result:hover {
+	background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris_fosc.jpg);
+	color:#000000;
+}
 .exemples {
 	position:absolute;
 	left: 289px;
@@ -184,6 +268,12 @@ a.exemples2:hover {
 	bottom: -1px;
 	right: 1px;
 }
+.pressupost:hover,
+.pressupost:focus,
+.pressupost.focus {
+  color: #333;
+  text-decoration: none;
+}
 
 a.pressupost {
 	background-image:url(/static/img/background.jpg);
@@ -239,6 +329,12 @@ a.autoeditables:hover {
 	bottom: -1px;
 	right: 1px;
 }
+.allotjament:hover,
+.allotjament:focus,
+.allotjament.focus {
+  color: #333;
+  text-decoration: none;
+}
 
 a.allotjament {
 	background-image:url(/static/img/background.jpg);
@@ -267,6 +363,13 @@ a.allotjament:hover {
 	bottom: -1px;
 	right: 1px;
 }
+.contacte:hover,
+.contacte:focus,
+.contacte.focus {
+  color: #333;
+  text-decoration: none;
+}
+
 
 a.contacte {
 	background-image:url(/static/img/background.jpg);
@@ -441,19 +544,25 @@ ul.menu_color li:hover > ul
    background-image:url(/static/img/background.jpg);
    width:143px;
    height:45px;
-   position:relative;}
-	
-#desplegable2 li a
-{	color:#000000;
+   position:relative;
+}
+
+#desplegable2:hover,
+#desplegable2:focus,
+#desplegable2.focus {
+  color: #333;
+  text-decoration: none;
 }
 	
+
+	
 #desplegable2 li:hover
-{    background-image:url(/static/img/background.jpg);
+{    background-image:none
 
   }
    
 #desplegable2 li li
-{  margin-top:0px;
+{  margin-top:20px;
    padding-top:21px;
    padding-bottom:21px;
    /*background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris.jpg);*/
@@ -461,7 +570,57 @@ ul.menu_color li:hover > ul
    background-color:#E0E0E0;
    width:165px;
    height:16px;
-   border-top:1px solid #FFFFFF;
+   border-top:0px solid #FFFFFF;
+   border-bottom:0px solid #FFFFFF;
+   border-left:10px solid #FFFFFF;
+   border-right:10px solid #FFFFFF;
+   margin-left:-10px
+   }
+
+#desplegable1
+{
+	position:absolute;
+	left: 148px;
+	top: 262px;
+	z-index:30;
+	
+}
+
+
+#desplegable1 li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:url(/static/img/background.jpg);
+   width:143px;
+   height:45px;
+   position:relative;
+}
+
+#desplegable1:hover,
+#desplegable1:focus,
+#desplegable1.focus {
+  color: #333;
+  text-decoration: none;
+}
+	
+
+	
+#desplegable1 li:hover
+{    background-image:none
+
+  }
+   
+#desplegable1 li li
+{  margin-top:20px;
+   padding-top:21px;
+   padding-bottom:21px;
+   /*background-image:url(img_disseny_web/img_menu_pagines_web/boto_gris.jpg);*/
+   background-image:none;
+   background-color:#E0E0E0;
+   width:165px;
+   height:16px;
+   border-top:0px solid #FFFFFF;
    border-bottom:0px solid #FFFFFF;
    border-left:10px solid #FFFFFF;
    border-right:10px solid #FFFFFF;

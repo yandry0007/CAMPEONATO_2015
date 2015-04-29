@@ -94,7 +94,7 @@ def contactenos_view(request):
 			contenido = formulario.cleaned_data['mensaje']+"\n"
 			contenido += 'Comunicarse a: ' + formulario.cleaned_data['correo']
 			correo = EmailMessage(titulo, contenido, to=['yrramirezs@unl.edu.ec'])
-			info = "Correo Enviado Satisfactoriamente!!"
+			info = "Correo Enviado ok!!"
 			try:
 				correo.send()
 			except Exception, e:
@@ -148,10 +148,10 @@ def jugadores_view(request,pagina):
 	ctx = {'jugadores':jugadores, 'torneos': torneos, 'equipos':equipos, 'perfil':perfil}
 	return render_to_response('jugadores.html', ctx, context_instance=RequestContext(request))
 
-def calendario_view(request,pagina):
+def calendario_varones_view(request,pagina):
   torneos = Campeonato.objects.filter(estado=True)
   #encuentros = Encuentro.objects.filter(fk_local__fk_campeonato__estado__exact=True).order_by('fk_fecha')
-  encuentros = Encuentro.objects.filter(jugado__exact=False).order_by('fk_fecha')
+  encuentros = Encuentro.objects.filter(jugado__exact=False, varones=True).order_by('fk_fecha')
   #PAGINACION
   paginator = Paginator(encuentros,3)
   try:
@@ -164,6 +164,24 @@ def calendario_view(request,pagina):
     encuentros = paginator.page(paginator.num_pages)
   ctx = {'encuentros':encuentros, 'torneos': torneos}
   return render_to_response('calendario.html', ctx, context_instance=RequestContext(request))
+
+
+def calendario_mujeres_view(request,pagina):
+  torneos = Campeonato.objects.filter(estado=True)
+  #encuentros = Encuentro.objects.filter(fk_local__fk_campeonato__estado__exact=True).order_by('fk_fecha')
+  encuentros = Encuentro.objects.filter(jugado__exact=False, mujeres=True).order_by('fk_fecha')
+  #PAGINACION
+  paginator = Paginator(encuentros,3)
+  try:
+    page = int(pagina)
+  except:
+      page = 1
+  try:
+    encuentros = paginator.page(page)
+  except (EmptyPage, InvalidPage):
+    encuentros = paginator.page(paginator.num_pages)
+  ctx = {'encuentros':encuentros, 'torneos': torneos}
+  return render_to_response('calendario_mujeres.html', ctx, context_instance=RequestContext(request))
 
 #@login_required(login_url='/ingresar')
 def registrar_view(request):
@@ -269,29 +287,55 @@ def print_plantilla_view(request):
 		return render_to_response('print_plantilla.html', ctx, context_instance=RequestContext(request))
 	return render_to_response('print_plantilla.html', {'torneos':torneos}, context_instance=RequestContext(request))
 
-def print_encuentro_view(request, id_encuentro):
+def print_encuentro_varones_view(request, id_encuentro):
 	torneos = Campeonato.objects.filter(estado=True)
 	planilla = Encuentro.objects.get(id=id_encuentro)
-	j_local	= Perfiles.objects.filter(fk_equipo=planilla.fk_local)
-	j_visita = Perfiles.objects.filter(fk_equipo=planilla.fk_visita)
+	j_local	= Perfiles.objects.filter(fk_equipo=planilla.fk_local, hombre=True)
+	j_visita = Perfiles.objects.filter(fk_equipo=planilla.fk_visita, hombre=True)
 	try:
-		r_local = Perfiles.objects.get(fk_equipo=planilla.fk_local, representante=True)
+		r_local = Perfiles.objects.get(fk_equipo=planilla.fk_local, hombre=True, representante=True)
 	except:
 		r_local = None
 	try:
-		c_local = Perfiles.objects.get(fk_equipo=planilla.fk_local, capitan=True)
+		c_local = Perfiles.objects.get(fk_equipo=planilla.fk_local, hombre=True, capitan=True)
 	except:
 		c_local = None
 	try:
-		r_visita = Perfiles.objects.get(fk_equipo=planilla.fk_visita, representante=True)
+		r_visita = Perfiles.objects.get(fk_equipo=planilla.fk_visita, hombre=True, representante=True)
 	except:
 		r_visita = None
 	try:
-		c_visita = Perfiles.objects.get(fk_equipo=planilla.fk_visita, capitan=True)
+		c_visita = Perfiles.objects.get(fk_equipo=planilla.fk_visita, hombre=True, capitan=True)
 	except:
 		c_visita = None
 	ctx = {'planilla':planilla, 'torneos':torneos, 'j_local':j_local, 'j_visita':j_visita, 'r_local':r_local, 'r_visita':r_visita, 'c_local':c_local, 'c_visita':c_visita}
 	return render_to_response('print_planilla.html', ctx, context_instance=RequestContext(request))
+
+
+def print_encuentro_mujeres_view(request, id_encuentro):
+	torneos = Campeonato.objects.filter(estado=True)
+	planilla = Encuentro.objects.get(id=id_encuentro)
+	j_local	= Perfiles.objects.filter(fk_equipo=planilla.fk_local, mujer=True)
+	j_visita = Perfiles.objects.filter(fk_equipo=planilla.fk_visita, mujer=True)
+	try:
+		r_local = Perfiles.objects.get(fk_equipo=planilla.fk_local, mujer=True, representante=True)
+	except:
+		r_local = None
+	try:
+		c_local = Perfiles.objects.get(fk_equipo=planilla.fk_local, mujer=True, capitan=True)
+	except:
+		c_local = None
+	try:
+		r_visita = Perfiles.objects.get(fk_equipo=planilla.fk_visita, mujer=True, representante=True)
+	except:
+		r_visita = None
+	try:
+		c_visita = Perfiles.objects.get(fk_equipo=planilla.fk_visita, mujer=True, capitan=True)
+	except:
+		c_visita = None
+	ctx = {'planilla':planilla, 'torneos':torneos, 'j_local':j_local, 'j_visita':j_visita, 'r_local':r_local, 'r_visita':r_visita, 'c_local':c_local, 'c_visita':c_visita}
+	return render_to_response('print_planilla.html', ctx, context_instance=RequestContext(request))
+
 
 def print_carnet_view(request, id_carnet):
 	torneos = Campeonato.objects.filter(estado=True)

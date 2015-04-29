@@ -2986,6 +2986,43 @@ select[multiple].form-group-lg .form-control {
     padding-top: 6px;
   }
 }
+.btn-inicio{
+  position:absolute;
+  left: 11px;
+  top: 262px;
+  color:#ffffff;
+  text-decoration:none;
+  font-size:16px;
+  height: 45px;
+  width:137px;
+  background-image:url(/static/img/a2.jpg);
+  background-repeat:no-repeat;
+  text-align:center;
+  padding-top:11px;
+  bottom: -1px;
+  right: 1px;
+
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+}
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -3007,19 +3044,19 @@ select[multiple].form-group-lg .form-control {
   border: 1px solid transparent;
   border-radius: 4px;
 }
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn.active.focus {
+.btn-inicio:focus,
+.btn-inicio:active:focus,
+.btn-inicio.active:focus,
+.btn-inicio.focus,
+.btn-inicio:active.focus,
+.btn-inicio.active.focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-.btn:hover,
-.btn:focus,
-.btn.focus {
+.btn-inicio:hover,
+.btn-inicio:focus,
+.btn-inicio.focus {
   color: #333;
   text-decoration: none;
 }

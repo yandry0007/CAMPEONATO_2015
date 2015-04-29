@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'campeonato.apps.main',
-    'crispy_forms',
+    #'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -89,6 +89,8 @@ class Perfiles(models.Model):
 	correo = models.EmailField(blank=False)
 	telefono = models.IntegerField(blank=False, max_length=30)
 	fk_equipo = models.ForeignKey(Equipo)
+	hombre = models.BooleanField(blank=False, default=False)
+	mujer = models.BooleanField(blank=False, default=False)
 	
 	def __unicode__(self):
 		return self.user.username
@@ -129,6 +131,16 @@ class Fase(models.Model):
 	def __unicode__(self):
 		return self.fase
 
+class Disciplina(models.Model):
+	nombre = models.CharField(blank=False, max_length=20)
+	class Meta:
+		verbose_name = 'Disciplina'
+		verbose_name_plural = 'Disciplinas'
+
+	def __unicode__(self):
+		return self.nombre
+
+
 class Encuentro(models.Model):
 	hora = models.DateTimeField()
 	cancha = models.CharField(max_length=200)
@@ -137,10 +149,12 @@ class Encuentro(models.Model):
 	fk_visita = models.ForeignKey(Equipo, related_name='+')
 	fk_fecha = models.ForeignKey(Fecha)
 	fk_fase = models.ForeignKey(Fase)
+	fk_disciplina = models.ForeignKey(Disciplina)
 	goleslocal = models.IntegerField(blank=False, default="0")
 	golesvisita = models.IntegerField(blank=False, default="0")
   	jugado = models.BooleanField(blank=False, default=False)
-  
+  	varones = models.BooleanField(blank=False, default=False)
+  	mujeres = models.BooleanField(blank=False, default=False)
 	class Meta:
 	    verbose_name = 'Encuentro'
 	    verbose_name_plural = 'Encuentros'

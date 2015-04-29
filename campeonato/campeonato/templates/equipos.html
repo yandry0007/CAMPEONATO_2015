@@ -12,6 +12,7 @@
 {% block contenido %}
 <h4>EQUIPOS REGISTRADOS</h4>
 
+<!-- 	IMPRIMIR PLANTILLA DE EQUIPO PERO YA NO JEJE 
 <form action="/print/plantilla/" method="post">
 {% csrf_token %}
 	
@@ -33,7 +34,7 @@
 	<option value="2do B">2do B</option>
 	</select></p>
 
-</form>
+</form> -->
 
 	<table class="table table-hover">
 		{% regroup jugadores by fk_equipo as equipo_list %}
@@ -47,7 +48,7 @@
 		{% for item in equipo.list %}
 		<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
 
-			<td>{{ item.nombres }} {{ item.apellidos }}</a></td>
+			<td><a href="/jugador/page/{{ item.id }}/">{{ item.nombres }} {{ item.apellidos }}</a></td>
 			<td>{{ item.fk_equipo.inscripcion }}</td>
 			<td><img src="/{{ item.foto }}" width="40px" heigth="40px" /></td>
 			

@@ -28,6 +28,18 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
+            name='Disciplina',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('nombre', models.CharField(max_length=20)),
+            ],
+            options={
+                'verbose_name': 'Disciplina',
+                'verbose_name_plural': 'Disciplinas',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='Encuentro',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -35,6 +47,9 @@ class Migration(migrations.Migration):
                 ('cancha', models.CharField(max_length=200)),
                 ('goleslocal', models.IntegerField(default=b'0')),
                 ('golesvisita', models.IntegerField(default=b'0')),
+                ('jugado', models.BooleanField(default=False)),
+                ('varones', models.BooleanField(default=False)),
+                ('mujeres', models.BooleanField(default=False)),
             ],
             options={
                 'verbose_name': 'Encuentro',
@@ -117,6 +132,7 @@ class Migration(migrations.Migration):
             name='JuegoTarjeta',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('pagado', models.BooleanField(default=False)),
                 ('fk_juego', models.ForeignKey(to='main.Encuentro')),
             ],
             options={
@@ -138,6 +154,8 @@ class Migration(migrations.Migration):
                 ('estatura', models.CharField(max_length=b'20', choices=[(b'bajo', b'1.40'), (b'bajo', b'1.42'), (b'bajo', b'1.44'), (b'bajo', b'1.46'), (b'bajo', b'1.48'), (b'bajo', b'1.50'), (b'bajo', b'1.52'), (b'bajo', b'1.54'), (b'bajo', b'1.56'), (b'bajo', b'1.58'), (b'medio', b'1.60'), (b'medio', b'1.62'), (b'medio', b'1.64'), (b'medio', b'1.66'), (b'medio', b'1.68'), (b'medio', b'1.70'), (b'alto', b'1.72'), (b'alto', b'1.74'), (b'alto', b'1.76'), (b'alto', b'1.78'), (b'alto', b'1.80'), (b'alto', b'1.82'), (b'alto', b'1.84'), (b'alto', b'1.86'), (b'alto', b'1.88'), (b'alto', b'1.90'), (b'alto', b'1.92')])),
                 ('correo', models.EmailField(max_length=75)),
                 ('telefono', models.IntegerField(max_length=30)),
+                ('hombre', models.BooleanField(default=False)),
+                ('mujer', models.BooleanField(default=False)),
                 ('fk_equipo', models.ForeignKey(to='main.Equipo')),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
@@ -207,6 +225,12 @@ class Migration(migrations.Migration):
             model_name='encuentro',
             name='fk_arbitros',
             field=models.ForeignKey(to='main.Ternaria_arbitros'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='encuentro',
+            name='fk_disciplina',
+            field=models.ForeignKey(to='main.Disciplina'),
             preserve_default=True,
         ),
         migrations.AddField(
