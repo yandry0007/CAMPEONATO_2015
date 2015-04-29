@@ -14,16 +14,25 @@
 <h4>TABLA DE RESULTADOS</h4><br>
 	<table class="table table-hover">
 		{% regroup resultados by fk_fecha as fecha_list %}
+		<th>DISCIPLINA</th>
+		<th>SEXO</th>
 		<th>LOCAL</th>
-		<TH></TH>
+		<TH>*</TH>
 		<th>VS</th>
 		<th>VISITANTE</th>
+		<TH>*</TH>
 		{% for fecha in fecha_list %}
 			<tr>
 				<th colspan="5">{{ fecha.grouper }}</th>
 			</tr>
 			{% for item in fecha.list %}
 				<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
+					<td>{{ item.fk_disciplina }}</td>
+					{% if item.varones == True %}
+					<td>Varones</td>
+					{% else %}
+					<td>Mujeres</td>
+					{% endif %}
 					<td>{{ item.fk_local.nombre }}</td>
 					<td>{{ item.goleslocal }}</td>
 					<td>VS</td>

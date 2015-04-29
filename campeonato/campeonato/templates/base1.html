@@ -34,7 +34,7 @@
 </head>
 
 <body>
-      <div class="Header">
+   <!--    <div class="Header">
         <div class="idioma">
           {% if user.is_authenticated %}
               <li><a class="Estilo10" href="/salir" >Logout</a></li>
@@ -42,7 +42,7 @@
               <li><a class="Estilo10" href="/ingresar">Login</a></li>
           {% endif %} 
         </div>
-      </div>
+      </div> -->
 <br>
 
 <div class="Marc" style="height:1023px">
@@ -108,6 +108,10 @@
 <div class="well sidebar-nav" style="position:absolute; left: 690px; top: 320px; width: 288px; height: 230px;">
         <ul class="nav nav-list">
                 <li class="nav-header">DATOS DE USUARIO</li>
+<!-- <form action="#" method="POST">
+  {% csrf_token %}
+  <button type="submit">like</button>
+</form> -->
                 <p aling="justify">
                 {% if user.is_authenticated %}
                 <p><b> Bienvenido:</b><br> {{user}}</p>
