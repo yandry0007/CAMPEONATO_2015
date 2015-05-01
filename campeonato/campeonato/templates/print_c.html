@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/static/css/styleprintcarnet.css" />
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/prefixfree.min.js"></script>
+    <script src="/static/js/functions.js"></script>
+    <title>CIS-UNL-2015</title>
+</head>
+<body>
+<section>
+<article id="contenido">
+
+    <h1> Jugadores </h1>
+
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Cedula</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for foo in c %}
+            <tr class="active">
+                <td> {{ foo.id }}</td>
+                <td> {{ foo.cedula }}</td>
+                <td> {{ foo.nombres }}</td>
+                <td> {{ foo.apellidos }}</td>
+                <td> {{ foo.correo }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    <a href="/generar_pdf/">
+        <input type="button" class="btn-primary" value="Imprimir"/>
+    </a>
+
+</article>
+</section>
+</body>
+</html>

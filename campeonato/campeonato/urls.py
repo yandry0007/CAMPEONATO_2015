@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-#from campeonato.apps.main.views import agregarPerfil
+from campeonato.apps.main.views import IndexView
 
 urlpatterns = patterns('campeonato.apps.main.views',
     # Examples:
@@ -30,5 +30,9 @@ urlpatterns = patterns('campeonato.apps.main.views',
     url(r'^print/encuentro/varones/(?P<id_encuentro>.*)/$', 'print_encuentro_varones_view', name='vista_print_encuentro_varones'),
     url(r'^print/encuentro/mujeres/(?P<id_encuentro>.*)/$', 'print_encuentro_mujeres_view', name='vista_print_encuentro_mujeres'),
     url(r'^print/carnet/(?P<id_carnet>.*)/$', 'print_carnet_view', name='vista_print_carnet'),
+    
+    #URLS PARA PDFs
+    url(r'^print_c/$', IndexView.as_view(), name='home'),
+    url(r'^generar_pdf/$', 'generar_pdf', name='pdf'),
 
 )

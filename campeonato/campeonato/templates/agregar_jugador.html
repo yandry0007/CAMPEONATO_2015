@@ -20,7 +20,7 @@
 			<br><form class="form-horizontal" method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 				{{ form.as_p }}
-				<a href="/ingresar" class="btn btn-primary" ><li class="icon-refresh"></li> Cancelar</a>
+				<a href="/ingresar" class="btn btn-primary" ><li class="icon-repeat"></li> Cancelar</a>
 				<button type="submit" class="btn btn-primary"><li class="icon-edit"></li> Guardar</button>
 			</form>
 			{% else %}

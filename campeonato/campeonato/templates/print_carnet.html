@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="/static/css/styleprintcarnet.css" />
-    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
 	<script src="/static/js/jquery.js"></script>
 	<script src="/static/js/prefixfree.min.js"></script>
 	<script src="/static/js/functions.js"></script>
@@ -23,8 +22,8 @@
         </tr>
         <tr>
             <th>N°</th>
-            <th>Nombre</th>
             <th>C.I.</th>
+            <th>Nombre</th>
             <th>Correo</th>
             <td>Firma</td>
            
@@ -32,8 +31,8 @@
 
     	<tr>
             <td></td>
-		    <td>{{ carnet.nombres }} {{ carnet.apellidos }} </td>
-            <td>{{carnet.cedula}}</td>
+		    <td>{{carnet.cedula}}</td>
+            <td>{{ carnet.nombres }} {{ carnet.apellidos }} </td>
             <td>{{carnet.correo}}</td>
             <td></td>
         </tr>

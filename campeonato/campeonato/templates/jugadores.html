@@ -10,16 +10,16 @@
 	{% endfor %}
 {% endblock %}
 {% block contenido %}
-	<!--BotonBuscar-->
-			<ul class="nav nav-list">
+<h4><strong>LISTA DE JUGADORES</strong></h4>
+	<!--BotonBuscar-->	
 				<li class="nav-header">Ingresar texto a buscar!</li>
-					<form action="#/buscar/" method="post">
-		  				{% csrf_token %}
-						<input type="text" id="modal_idBuscar" name="texto" placeholder="Buscar por cedula" type="search">
-						<button type="submit" class="btn " ><li class="icon icon-search"></li>Search</button>
-					</form>					
-			</ul>
-	
+					<form action="#/buscar/" method="post" class="navbar-form navbar-rigth" role="search">
+						<div class="form-group">
+		  					{% csrf_token %}
+							<input type="text" id="modal_idBuscar" name="texto" placeholder="Buscar por cedula" type="search">
+						</div>
+						<button type="submit" class="btn " ><li class="icon icon-search"></li> Search</button>
+					</form>
 	<!--FinBuscar-->
 
 {% if pro %}
@@ -37,7 +37,7 @@
 			<td>{{ item.cedula }}</td>
 			<td>{{ item.nombres }} {{ item.apellidos }}</td>
 			<td>{{ item.fk_equipo.nombre }}</td>
-			<td><a class="btn btn-success" href="/jugador/page/{{item.id}}">Ver Perfil</a>
+			<td><a class="btn btn-success" href="/jugador/page/{{item.id}}"><i class="icon icon-user"></i> Ver Perfil</a>
 			</td>
 		</tr>
 		{% endfor %}
@@ -75,7 +75,6 @@
 		<a class="btn btn-primary" href="/agregar/perfil"><li class ="icon-plus"></li>Agregar Perfil...</a><br><br>
 		{% endif %}
 
-
 	<table class="table table-hover">
 		
 		<th>CEDULA</th>
@@ -89,7 +88,7 @@
 			<td>{{ item.cedula }}</a></td>
 			<td>{{ item.nombres }} {{ item.apellidos }}</a></td>
 			<td>{{ item.fk_equipo.nombre }}</td>
-			<td><a class="btn btn-success" href="/jugador/page/{{item.id}}">Ver Perfil</a>
+			<td><a class="btn btn-success" href="/jugador/page/{{item.id}}"><i class="icon icon-user"></i> Ver Perfil</a>
 			</td>
 		</tr>
 		{% endfor %}

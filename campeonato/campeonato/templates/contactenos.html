@@ -10,7 +10,7 @@
 	{% endfor %}
 {% endblock %}
 {% block contenido %}
-
+<H4><STRONG>ENVIANOS TUS COMENTARIOS</STRONG></H4><BR><BR>
 	{% if info == "inicializando" %}	
 		<form id='formulario' method='post' action=''>{% csrf_token %}
 			<table class="table1">
@@ -23,17 +23,21 @@
 					<td>{{ formulario.mensaje }}</td>
 				</tr>
 				<tr>
-					<td><input class="btn" type='submit' value='Enviar' /></td>
+					<td>*</td>
+				</tr>
+				<tr> 
+					<td></td>
+					<td><input class="btn btn-primary" type='submit' value='Enviar' /></td>
 				</tr>
 			</table>
 			<section class="foot">
-				<h5>E-mail: yrramirezs@unl.edu.ec</h5>
+				<br><h5>E-mail: yrramirezs@unl.edu.ec</h5>
 			</section>
 		</form>			
 
 	{% else %}
 			<br><p align="center"><h4><b>{{ info }}</b></h4></p>		
-		    <img src="/static/img/ss.jpg" width="250px" heigth="250px">
+		    <img src="/static/img/email-ok.jpg" width="250px" heigth="250px">
 	{% endif %}
 	
 {% endblock %}

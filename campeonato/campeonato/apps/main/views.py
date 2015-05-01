@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, render_to_response
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
@@ -153,7 +154,7 @@ def calendario_varones_view(request,pagina):
   #encuentros = Encuentro.objects.filter(fk_local__fk_campeonato__estado__exact=True).order_by('fk_fecha')
   encuentros = Encuentro.objects.filter(jugado__exact=False, varones=True).order_by('fk_fecha')
   #PAGINACION
-  paginator = Paginator(encuentros,3)
+  paginator = Paginator(encuentros,4)
   try:
     page = int(pagina)
   except:
@@ -171,7 +172,7 @@ def calendario_mujeres_view(request,pagina):
   #encuentros = Encuentro.objects.filter(fk_local__fk_campeonato__estado__exact=True).order_by('fk_fecha')
   encuentros = Encuentro.objects.filter(jugado__exact=False, mujeres=True).order_by('fk_fecha')
   #PAGINACION
-  paginator = Paginator(encuentros,3)
+  paginator = Paginator(encuentros,4)
   try:
     page = int(pagina)
   except:
@@ -342,3 +343,59 @@ def print_carnet_view(request, id_carnet):
 	carnet = Perfiles.objects.get(id=id_carnet)
 	ctx = {'carnet':carnet, 'torneos':torneos}
 	return render_to_response('print_carnet.html', ctx, context_instance=RequestContext(request))
+
+#reportes en pdf reporlab
+from cStringIO import StringIO
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
+
+from io import BytesIO
+from django.http import HttpResponse
+from django.views.generic import ListView
+from reportlab.platypus import SimpleDocTemplate, Paragraph, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import Table
+#FIN reportes en pdf reporlab 
+ 
+class IndexView(ListView):
+    template_name = "print_c.html"
+    model = Perfiles
+    context_object_name = "c"
+ 
+def generar_pdf(request):
+    #print "Genero el PDF"
+    response = HttpResponse(content_type='application/pdf')
+    pdf_name = "carnet.pdf"  # llamado clientes
+    # la linea 26 es por si deseas descargar el pdf a tu computadora
+    # response['Content-Disposition'] = 'attachment; filename=%s' % pdf_name
+    buff = BytesIO()
+    doc = SimpleDocTemplate(buff,
+                            pagesize=letter,
+                            rightMargin=40,
+                            leftMargin=40,
+                            topMargin=60,
+                            bottomMargin=18,
+                            )
+    clientes = []
+    styles = getSampleStyleSheet()
+    header = Paragraph("Listado de Jugadores", styles['Heading1'])
+    clientes.append(header)
+    headings = ('Cedula', 'Nombre', 'Apellidos', 'Correo')
+    allclientes = [( p.cedula, p.nombres, p.apellidos, p.correo) for p in Perfiles.objects.all()]
+    #print allclientes
+ 
+    t = Table([headings] + allclientes)
+    t.setStyle(TableStyle(
+        [
+            ('GRID', (0, 0), (3, -1), 1, colors.dodgerblue),
+            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.darkblue),
+            ('BACKGROUND', (0, 0), (-1, 0), colors.dodgerblue)
+        ]
+    ))
+    clientes.append(t)
+    doc.build(clientes)
+    response.write(buff.getvalue())
+    buff.close()
+    return response

@@ -10,19 +10,21 @@
 	{% endfor %}
 {% endblock %}
 {% block contenido %}
-<h4>TABLA DE GOLEADORES</h4>
+<h4><strong>TABLA DE GOLEADORES</strong></h4>
 {% if jugadores %}
-<a class="btn btn-danger" onClick="popup('/print/goleadores');return false;" href=""><i class="icon-print icon-blue"></i> Imprimir Lista</a><br><br>
+<a class="btn btn-danger" onClick="popup('/print/goleadores');return false;" href=""><i class="icon-print"></i> Imprimir Lista</a><br><br>
 
 <table class="table table-hover">
 		
 		<tr>
-			<th>JUGADORES</th>
+			<th>CEDULA</th>
+			<th>NOMBRES</th>
 			<th>EQUIPO</th>
 			<th>GOLES</th>
 		</tr>
 		{% for item in jugadores %}
 		<tr style="background:{% cycle '#DCDCF0' '#FFFFF0' %} ">
+			<td>{{ item.fk_user.cedula }}</td>
 			<td>{{ item.fk_user.nombres }} {{ item.fk_user.apellidos }}</td>
 			<td>{{ item.fk_user.fk_equipo.nombre }}</td>
 			<td>{{ item.goles }}</td>
